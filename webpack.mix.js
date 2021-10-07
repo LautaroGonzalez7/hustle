@@ -11,6 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.ts('resources/spa/app.ts', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .version();
+// mix.ts('resources/spa/app.ts', 'public/js')
+//     .sass('resources/sass/app.scss', 'public/css')
+//     .version();
+
+mix.ts('resources/spa/app.ts', 'public/js').vue()
+    .sass('resources/sass/app.scss', 'public/css', [
+        //
+    ]);

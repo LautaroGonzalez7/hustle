@@ -102,6 +102,7 @@
                             @endauth
                             <ul class="custom-menu">
                                 <li><a href="#"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+                                <li><a href="/my-orders"><i class="fa fa-user-o"></i> Mis compras</a></li>
                                 <li><a href="#" id="logout-button"><i class="fa fa-unlock-alt"></i> Salir</a></li>
                             </ul>
                         </li>

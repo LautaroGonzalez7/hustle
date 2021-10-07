@@ -298,6 +298,10 @@ a:hover, a:focus{
 .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
 /*END Form Wizard*/
 
+/*Backgrounds */
+.bg-gray{
+    background-color: #ededed;
+}
 
 /*Cards */
 .m-card h1 {
@@ -336,4 +340,67 @@ a:hover, a:focus{
     box-shadow: 0 2px 3px #C8D0D8;
     display: inline-block;
     margin: 0 auto;
+}
+
+/*Cards order */
+.order-card h1 {
+    color: #88B04B;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.order-card .order-state {
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    margin: 0;
+}
+.order-card i {
+    color: #9ABC66;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left:-15px;
+}
+.order-card {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-radius: 6px;
+    -webkit-filter: drop-shadow(0 0 1px rgba(0,0,0,.12));
+    filter: drop-shadow(0 0 1px rgba(0,0,0,.12));
+}
+
+.order-card .order-title{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 10px 24px;
+    margin: 0;
+    color: rgba(0,0,0,.8);
+}
+
+.order-card .order-content{
+    padding: 24px;
+}
+
+.order-card .order-button{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 65px;
+}
+
+.order-card .order-description{
+    color: rgba(0,0,0,.45);
+}
+
+/*Calendar product*/
+.calendar-buttons3{
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    display: block;
+    border: 1px solid #c5c5c5;
+    margin: 3px 0;
+    width: 100%;
+    background: white;
 }

@@ -14,7 +14,6 @@ class OrderController extends Controller
 {
     public function addOrder(Request $request)
     {
-
         $productId = $request->session()->get('buy.productId');
         $product   = Product::where('id', $productId)->first();
 
@@ -46,7 +45,6 @@ class OrderController extends Controller
 
     public function addStripeOrder(Request $request)
     {
-
         $productId = $request->session()->get('buy.productId');
         $product   = Product::where('id', $productId)->first();
 
@@ -74,5 +72,14 @@ class OrderController extends Controller
         $order->save();
 
         return view('payments.stripe');
+    }
+
+    public function getAll(Request $request)
+    {
+        $userId = 1;
+
+        $orders = Order::where('user_id', $userId)->get()->all();
+
+        return view('account.my-orders', ["orders" => $orders]);
     }
 }

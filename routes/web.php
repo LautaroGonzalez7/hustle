@@ -32,6 +32,7 @@ Route::get('/steph-two', [Controllers\Steps\StepController::class, 'stepTwo'])->
 Route::get('/steph-three', [Controllers\Steps\StepController::class, 'stepThree'])->name('stepThree.get');
 
 //Orders
+Route::get('/my-orders', [Controllers\Order\OrderController::class, 'getAll'])->name('getAll');
 Route::get('/order', [Controllers\Order\OrderController::class, 'addOrder'])->name('addOrder');
 Route::get('/order-stripe', [Controllers\Order\OrderController::class, 'addStripeOrder'])->name('addStripeOrder');
 

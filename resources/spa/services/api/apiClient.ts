@@ -22,6 +22,7 @@ export default class ApiClient {
     }
 
     public async post(path: string, payload: string | null, header: object | null = null): Promise<Response<any>> {
+        // @ts-ignore
         this.config.headers = header ? header : this.config.headers;
         return new Response<any>(await Axios.post(path, payload, this.config).catch(function (error) {
             return error.response;
@@ -29,6 +30,7 @@ export default class ApiClient {
     }
 
     public async put(path: string, payload: object | string | null, header: object | null = null): Promise<Response<any>> {
+        // @ts-ignore
         this.config.headers = header ? header : this.config.headers;
         return new Response<any>(await Axios.put(path, payload, this.config).catch(function (error) {
             return error.response;

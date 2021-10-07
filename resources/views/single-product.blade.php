@@ -251,16 +251,14 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">TITULO</h4>
+                    <h4 class="modal-title" id="myModalLabel">SELECCIONAR HORARIO</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row" style="padding:15px">
                         <div class="col-md-12">
-                            <div class="date-picker-2" placeholder="Recipient's username" id="ttry"
-                                 aria-describedby="basic-addon2"></div>
-                            <span class="" id="example-popover-2"></span></div>
-                        <div id="example-popover-2-content"></div>
-                        <div id="example-popover-2-title"></div>
+                            <div class="date-picker-2"></div>
+                        </div>
+                        <div class="col-md-4" style="padding-top: 7px" id="hour-buttons"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -277,16 +275,17 @@
 
         $(".date-picker-2").datepicker({
             onSelect: (dateText) => {
-                console.log(1)
-                console.log(dateText)
-                var d = new Date(dateText);
-                console.log(d.getDay());
-                $('#example-popover-2-title').html('<b>Avialable Appiontments</b>');
-                var html = '<button  class="btn btn-success">8:00 am – 9:00 am</button><br><button  class="btn btn-success">10:00 am – 12:00 pm</button><br><button  class="btn btn-success">12:00 pm – 2:00 pm</button>';
-                $('#example-popover-2-content').html('Avialable Appiontments On <strong>' + dateText + '</strong><br>' + html);
+                let d = new Date(dateText);
+                let html = `<button  class="calendar-buttons3" onclick="option('8:00-9:00', ${d.getDate()})">8:00 am – 9:00 am</button><button  class="calendar-buttons3">10:00 am – 12:00 pm</button><button  class="calendar-buttons3">12:00 pm – 2:00 pm</button>`;
+                $('#hour-buttons').html(html);
 
             }
         });
+
+        function option(hour, day) {
+            console.log(3, hour)
+            console.log(4, day)
+        }
 
         $('#customDate').click(function () {
             $('#customDateModal').modal('show');
