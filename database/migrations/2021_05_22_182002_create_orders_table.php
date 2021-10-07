@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('product');
             $table->string('payment');
             $table->string('shipment');
+            $table->string('complements');
             $table->string('state');
             $table->unsignedSmallInteger('user_id');
             $table->timestamps();

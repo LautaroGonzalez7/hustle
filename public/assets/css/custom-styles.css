@@ -52,6 +52,11 @@
     object-fit: cover;
 }
 
+.banner-img-fit-complements{
+    width: 100%;
+    object-fit: cover;
+}
+
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus{
     background: var(--primary-color);
 }

@@ -60,6 +60,7 @@
                     <h1>¡Pedido exitoso!</h1>
                     <p>Recibimos tu pedido, ahora te dejamos nuestras cuentas de banco para que realizes la
                         transferencia.</p>
+                    <p>Deberás pagar: PEN ${{$totalPrice}} ó USD ${{round($totalPrice/4.10)}}</p>
                 </div>
             </div>
 

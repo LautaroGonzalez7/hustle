@@ -43,6 +43,10 @@
                                         </div>
                                         <div class="col-md-9">
                                             <p class="order-state text-success">{{$order->state}}</p>
+                                            <p class="order-description">
+                                                <span>{{json_decode($order->shipment, true)["date"]}}</span>
+                                                <span>{{json_decode($order->shipment, true)["hour"]}}</span>
+                                            </p>
                                             <p class="order-description">{{json_decode($order->product, true)["content"]}}</p>
                                         </div>
                                         <div class="col-md-2 order-button">

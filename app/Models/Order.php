@@ -20,6 +20,7 @@ class Order extends Model
         array $product,
         array $payment,
         array $shipment,
+        array $complements,
         string $state,
         int $userId
     ): Order {
@@ -31,6 +32,7 @@ class Order extends Model
         $order->product  = json_encode($product);
         $order->payment  = json_encode($payment);
         $order->shipment = json_encode($shipment);
+        $order->complements = json_encode($complements);
         $order->state    = $state;
         $order->user_id  = $userId;
         $order->setCreatedAt(new \DateTimeImmutable());

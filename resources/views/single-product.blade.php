@@ -75,27 +75,31 @@
     font-weight: bold;
     margin: 0;
 ">Hoy</p>
-                                        17 agosto
+                                        <span id="todayDate"></span>
                                     </button>
                                     <div id="schedules20200817" class="collapse" style="width: 150px;">
                                         <div aria-labelledby="dropdownMenuButton"
                                              class="btn btn-block border-0 mt-0 p-0" style="padding: 0;">
                                             <div value="0"
+                                                 onclick="optionToday('8:00-11:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 8:00AM - 11:00AM
                                             </div>
                                             <div value="1"
+                                                 onclick="optionToday('11:00-14:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 11:00AM - 2:00PM
                                             </div>
                                             <div value="2"
+                                                 onclick="optionToday('14:00-17:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 2:00PM - 5:00PM
                                             </div>
                                             <div value="3"
+                                                 onclick="optionToday('17:00-20:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 unselectable"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 5:00PM - 8:00PM
@@ -113,27 +117,31 @@
                                             style="height: 68px;background: #fff;border: 1px solid;width: 100%;">
                                         <p class="size-16 font-weight-bold mb-0" style="font-weight: bold;margin: 0;">
                                             Mañana</p>
-                                        18 agosto
+                                        <span id="tomorrowDate"></span>
                                     </button>
                                     <div id="schedules20200818" class="collapse" style="width: 150px;">
                                         <div aria-labelledby="dropdownMenuButton"
                                              class="btn btn-block border-0 mt-0 p-0" style="padding: 0;">
                                             <div value="0"
+                                                 onclick="optionTomorrow('8:00-11:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 8:00AM - 11:00AM
                                             </div>
                                             <div value="1"
+                                                 onclick="optionTomorrow('11:00-14:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 11:00AM - 2:00PM
                                             </div>
                                             <div value="2"
+                                                 onclick="optionTomorrow('14:00-17:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 2:00PM - 5:00PM
                                             </div>
                                             <div value="3"
+                                                 onclick="optionTomorrow('17:00-20:00')"
                                                  class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 unselectable"
                                                  style="display: block;border: 1px solid;margin: 3px 0;">
                                                 5:00PM - 8:00PM
@@ -159,9 +167,9 @@
                                                                 class="input-text flex-fill schedule-content w-100 d-flex align-items-center">
                                                                 <div class="text-center w-100" id="customDate">
                                                                     <p class="mb-0"
-                                                                       style="font-weight: bold;margin: 0;">mar. 18,
-                                                                        agosto</p>
-                                                                    2:00PM - 5:00PM<br>
+                                                                       style="font-weight: bold;margin: 0;">Otra
+                                                                        fecha</p>
+                                                                    Seleccionar...<br>
                                                                     <div>
                                                                     </div>
                                                                 </div>
@@ -179,13 +187,25 @@
                             <br>
                             <h3 class="product-section">2- Seleccionar Complementos (opcional)</h3>
                             <div class="row">
+                                <div class="complements-slick" id="complements-slick">
                                 @foreach ($complements as $complement)
-                                    <div class="col-md-4">
-                                        <img
-                                            src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
-                                            alt="">
-                                    </div>
-                                @endforeach
+                                    <!-- banner -->
+                                        <div class="banner banner-1">
+                                            <div style="padding: 5px">
+                                                <div style="border: 1px solid">
+                                                    <h5>{{$complement->name}}</h5>
+                                                    <img class="banner-img-fit-complements"
+                                                         src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
+                                                         alt="">
+                                                    <div class="banner-caption text-center">
+                                                        <button class="primary-btn" onclick="optionComplement(event, {{$complement->id}})">Añadir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /banner -->
+                                    @endforeach
+                                </div>
                             </div>
                             <br>
                             <h3 class="product-section">3- Continuar</h3>
@@ -193,6 +213,9 @@
                                 <form action="{{route('session.addProduct.post')}}" method="post">
                                     @csrf
                                     <input type="text" name="productId" value="{{$product->id}}" hidden>
+                                    <input type="text" name="complements" id="complements" hidden>
+                                    <input type="text" name="shipmentHour" id="shipmentHour" hidden>
+                                    <input type="text" name="shipmentDate" id="shipmentDate" hidden>
                                     <button class="primary-btn add-to-cart col-md-12">
                                         <i class="fa fa-shopping-cart"></i>Continuar
                                     </button>
@@ -272,19 +295,85 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script>
+        $(document).ready(function () {
+            let d = new Date();
+            const todayDay = `${d.getDate()}`
+            const todayMonth = `${d.getMonth() + 1}`
+            const tomorrowDay = `${d.getDate() + 1}`
+            const tomorrowMonth = `${d.getMonth() + 1}`
+
+            const months = {
+                1: 'Enero',
+                2: 'Febrero',
+                3: 'Marzo',
+                4: 'Abril',
+                5: 'Mayo',
+                6: 'Junio',
+                7: 'Julio',
+                8: 'Agosto',
+                9: 'Septiembre',
+                10: 'Octubre',
+                11: 'Noviembre',
+                12: 'Diciembre'
+            }
+
+            $('#todayDate').html(`${todayDay} de ${months[todayMonth]}`);
+            $('#tomorrowDate').html(`${tomorrowDay} de ${months[tomorrowMonth]}`);
+
+            $('.complements-slick').slick({
+                slidesToShow: 3
+            });
+        });
+
 
         $(".date-picker-2").datepicker({
             onSelect: (dateText) => {
                 let d = new Date(dateText);
-                let html = `<button  class="calendar-buttons3" onclick="option('8:00-9:00', ${d.getDate()})">8:00 am – 9:00 am</button><button  class="calendar-buttons3">10:00 am – 12:00 pm</button><button  class="calendar-buttons3">12:00 pm – 2:00 pm</button>`;
+                const fullDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+                let html = `<button  class="calendar-buttons3" onclick="option('8:00-9:00', '${fullDate}')">8:00 am – 9:00 am</button>`;
+                html += `<button  class="calendar-buttons3" onclick="option('10:00-12:00', '${fullDate}')">10:00 am – 12:00 pm</button>`;
+                html += `<button  class="calendar-buttons3" onclick="option('12:00-14:00', '${fullDate}')">12:00 am – 2:00 pm</button>`;
                 $('#hour-buttons').html(html);
-
             }
         });
 
-        function option(hour, day) {
-            console.log(3, hour)
-            console.log(4, day)
+        function option(hour, date) {
+            $('#shipmentHour').val(hour);
+            $('#shipmentDate').val(date);
+        }
+
+        function optionToday(hour) {
+            let d = new Date();
+            const fullDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+
+            $('#shipmentHour').val(hour);
+            $('#shipmentDate').val(fullDate);
+        }
+
+        function optionTomorrow(hour) {
+            let d = new Date();
+            const fullDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate() + 1}`
+
+            $('#shipmentHour').val(hour);
+            $('#shipmentDate').val(fullDate);
+        }
+
+        function optionComplement(event, id) {
+            let complements = $('#complements').val();
+            complements = complements.split(',');
+
+            if(complements.includes(String(id))){
+                complements = complements.filter(c => c !== String(id));
+                event.target.innerHTML = 'Añadir'
+            }else{
+                complements.push(String(id));
+                event.target.innerHTML = 'Quitar'
+            }
+
+            complements = complements.filter(c => c)
+            complements = complements.join(',')
+
+            $('#complements').val(complements);
         }
 
         $('#customDate').click(function () {

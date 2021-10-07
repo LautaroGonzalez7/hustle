@@ -14,6 +14,15 @@ class SessionController extends Controller
     {
         $request->session()->put('buy.productId', $request->input('productId'));
 
+        $complements = [];
+        if (!empty($request->input('complements'))) {
+            $complements = explode(",", $request->input('complements'));
+        }
+        $request->session()->put('buy.complements', $complements);
+
+        $request->session()->put('buy.shipment.date', $request->input('shipmentDate'));
+        $request->session()->put('buy.shipment.hour', $request->input('shipmentHour'));
+
         return redirect()->route('stepOne.get');
     }
 
