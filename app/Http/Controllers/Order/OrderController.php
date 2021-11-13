@@ -63,6 +63,7 @@ class OrderController extends Controller
         $product   = Product::where('id', $productId)->first();
 
         $formattedProduct = [
+            'id' => $product->id,
             'name' => $product->name,
             'price' => $product->price,
             'content' => $product->content,
@@ -74,18 +75,30 @@ class OrderController extends Controller
 
         $shipment = $request->session()->get('buy.shipment');
 
+        $complements = $request->session()->get('buy.complements');
+
+        $complementsFromDB = Complement::whereIn('id', $complements)->get()->all();
+
+        $productPrice = $product->price;
+        $complementsPrice = 0;
+        foreach ($complementsFromDB as $c){
+            $complementsPrice += $c->price;
+        }
+        $totalPrice = $productPrice + $complementsPrice;
+
         $userId = 1;
 
         $order = Order::create(
             $formattedProduct,
             $payment,
             $shipment,
+            $complements,
             OrderStates::PENDING,
             $userId,
         );
         $order->save();
 
-        return view('payments.stripe');
+        return view('payments.stripe', ["totalPrice" => $totalPrice]);
     }
 
     public function getAll(Request $request)

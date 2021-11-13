@@ -8,38 +8,19 @@
         <div class="">
             <!-- home slick -->
             <div id="home-slick">
-                <!-- banner -->
-                <div class="banner banner-1">
-                    <img class="banner-img-fit" src="{{asset('assets/img/sliders/slider1.png')}}" alt="">
-                    <div class="banner-caption text-center">
-                        <h1>Regalos</h1>
-                        <h3 class="white-color font-weak">Encuentra el regalo perfecto</h3>
-                        <button class="primary-btn">Tienda</button>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
-                <div class="banner banner-1">
-                    <img class="banner-img-fit" src="{{asset('assets/img/sliders/slider2.jpg')}}" alt="">
-                    <div class="banner-caption text-center">
-                        <h1>Nuevos</h1>
-                        <h3 class="white-color font-weak">Diseños</h3>
-                        <button class="primary-btn">Tienda</button>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
-                <div class="banner banner-1">
-                    <img class="banner-img-fit" src="{{asset('assets/img/sliders/slider3.jpg')}}" alt="">
-                    <div class="banner-caption text-center">
-                        <h1>Hot Sale!</h1>
-                        <h3 class="white-color font-weak">Hasta 40% Off</h3>
-                        <button class="primary-btn">Tienda</button>
-                    </div>
-                </div>
-                <!-- /banner -->
+                @foreach($sliders as $slider)
+                    <!-- banner -->
+                        <div class="banner banner-1">
+                            <img class="banner-img-fit" src="{{$slider->images ? '/storage/sliders/'.json_decode($slider->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                                 alt="">
+                            <div class="banner-caption text-center">
+                                <h1>{{$slider->title}}</h1>
+                                <h3 class="white-color font-weak">{{$slider->subtitle}}</h3>
+                                <a class="primary-btn" href="{{$slider->link}}">Tienda</a>
+                            </div>
+                        </div>
+                        <!-- /banner -->
+                @endforeach
             </div>
             <!-- /home slick -->
         </div>
@@ -237,7 +218,7 @@
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('https://www.pearsonsflorist.com.au/media/wysiwyg/banners/banner-424.png')center/cover">
+                         style="background: url('/assets/img/banners/banner-1.png')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -254,7 +235,7 @@
                 <!-- banner -->
                 <div class="col-md-8 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('https://www.pearsonsflorist.com.au/media/wysiwyg/banners/Luxe1.png')center/cover">
+                         style="background: url('/assets/img/banners/banner-2.png')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -271,7 +252,7 @@
                 <!-- banner -->
                 <div class="col-md-8 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('https://www.pearsonsflorist.com.au/media/wysiwyg/banners/Father.png')center/cover">
+                         style="background: url('/assets/img/banners/banner-3.png')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -288,7 +269,7 @@
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('https://www.pearsonsflorist.com.au/media/wysiwyg/banners/banner-4-inverse.jpg')center/cover">
+                         style="background: url('/assets/img/banners/banner-4.jpg')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -305,7 +286,7 @@
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('https://www.pearsonsflorist.com.au/media/wysiwyg/banners/banner-424.png')center/cover">
+                         style="background: url('/assets/img/banners/banner-4.jpg')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -322,7 +303,7 @@
                 <!-- banner -->
                 <div class="col-md-8 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('https://www.pearsonsflorist.com.au/media/wysiwyg/banners/Feature1.png')center/cover">
+                         style="background: url('/assets/img/banners/banner-5.png')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>

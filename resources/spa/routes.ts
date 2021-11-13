@@ -9,6 +9,9 @@ import ProductEdit from "./pages/Product/Edit.vue"
 import ComplementList from "./pages/Complement/List.vue"
 import ComplementCreate from "./pages/Complement/Create.vue"
 import ComplementEdit from "./pages/Complement/Edit.vue"
+import SliderList from "./pages/Slider/List.vue"
+import SliderCreate from "./pages/Slider/Create.vue"
+import SliderEdit from "./pages/Slider/Edit.vue"
 import Dashboard from "./pages/Dashboard/Dashboard.vue";
 import MainContainer from "./containers/MainContainer.vue";
 
@@ -102,6 +105,30 @@ const router = new VueRouter({
                         title: "Editar Complemento"
                     }
                 },
+                {
+                    path: '/slider/list',
+                    name: 'Sliders',
+                    component: SliderList,
+                    meta: {
+                        title: "Sliders"
+                    }
+                },
+                {
+                    path: '/slider/create',
+                    name: 'Sliders',
+                    component: SliderCreate,
+                    meta: {
+                        title: "Crear Slider"
+                    }
+                },
+                {
+                    path: '/slider/:id/edit',
+                    name: 'Sliders',
+                    component: SliderEdit,
+                    meta: {
+                        title: "Editar Slider"
+                    }
+                }
             ]
         },
     ]

@@ -49,21 +49,26 @@
 
             <!-- row -->
             <div class="row">
+                <div class="col-md-12 steps-card">
+                    <h1>Información de envío</h1>
+                    <p>Aquí debe completar los datos de la persona quién recibe.</p>
+                </div>
                 <!--  Product Details -->
-                <div class="product product-details clearfix">
-                   Información de envío:
-                    <form action="{{route('session.addShipmentInformation.post')}}" method="post">
+                <div class="col-md-12 product product-details clearfix justify-center">
+                    <form action="{{route('session.addShipmentInformation.post')}}" method="post" class="col-md-6 form-shipment">
                         @csrf
-                        <label for="name">Nombre completo</label>
-                        <input name="name" id="name" type="text" class="form-control" placeholder="María del Carmen" value="{{$shipment['name'] ?? ''}}" />
-                        <label for="district">Distrito</label>
-                        <input name="district" id="district" type="text" class="form-control" placeholder="San Sebastián" value="{{$shipment['district'] ?? ''}}" />
-                        <label for="address">Dirección</label>
-                        <input name="address" id="address" type="text" class="form-control" placeholder="Pellegrini 211" value="{{$shipment['address'] ?? ''}}" />
-                        <label for="phone">Teléfono</label>
-                        <input name="phone" id="phone" type="text" class="form-control" placeholder="555-555555" value="{{$shipment['phone'] ?? ''}}" />
-                        <button class="primary-btn add-to-cart col-md-12">
-                            <i class="fa fa-shopping-cart"></i>Continuar
+                        <div class="col-md-12">
+                            <label for="name">Nombre completo</label>
+                            <input name="name" id="name" type="text" class="form-control" placeholder="María del Carmen" value="{{$shipment['name'] ?? ''}}" />
+                            <label for="district">Distrito</label>
+                            <input name="district" id="district" type="text" class="form-control" placeholder="San Sebastián" value="{{$shipment['district'] ?? ''}}" />
+                            <label for="address">Dirección</label>
+                            <input name="address" id="address" type="text" class="form-control" placeholder="Pellegrini 211" value="{{$shipment['address'] ?? ''}}" />
+                            <label for="phone">Teléfono</label>
+                            <input name="phone" id="phone" type="text" class="form-control" placeholder="555-555555" value="{{$shipment['phone'] ?? ''}}" />
+                        </div>
+                        <button class="primary-btn add-to-cart col-md-3">
+                            Continuar
                         </button>
                     </form>
                 </div>

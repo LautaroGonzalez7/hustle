@@ -88,23 +88,30 @@
                     <ul class="header-btns">
                         <!-- Account -->
                         <li class="header-account dropdown default-dropdown">
-                            <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
-                                <div class="header-btns-icon">
-                                    <i class="fa fa-user-o"></i>
-                                </div>
-                                <strong class="text-uppercase">Mi Cuenta <i class="fa fa-caret-down"></i></strong>
-                            </div>
                             @guest
-                                <a href="{{route('login')}}" class="text-uppercase">Acceder</a> / <a href="{{route('register')}}" class="text-uppercase">Registrarse</a>
+                                <div class="access-login">
+                                    <div class="header-btns-icon">
+                                        <i class="fa fa-user-o"></i>
+                                    </div>
+                                    <a href="{{route('login')}}" class="text-uppercase btn-login">Acceder</a>
+                                    <a href="{{route('register')}}" class="text-uppercase">Registrarse</a>
+                                </div>
                             @endguest
                             @auth
-                                <span class="text-uppercase">{{auth()->user()->name}}</span>
+                                <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                                    <div class="access-login">
+                                        <div class="header-btns-icon">
+                                            <i class="fa fa-user-o"></i>
+                                        </div>
+                                        <strong class="text-uppercase">{{auth()->user()->name}} <i class="fa fa-caret-down"></i></strong>
+                                    </div>
+                                </div>
                             @endauth
-                            <ul class="custom-menu">
-                                <li><a href="#"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
-                                <li><a href="/my-orders"><i class="fa fa-user-o"></i> Mis compras</a></li>
-                                <li><a href="#" id="logout-button"><i class="fa fa-unlock-alt"></i> Salir</a></li>
-                            </ul>
+                                <ul class="custom-menu">
+                                    <li><a href="#"><i class="fa fa-user-o"></i> Mi cuenta</a></li>
+                                    <li><a href="/my-orders"><i class="fa fa-user-o"></i> Mis compras</a></li>
+                                    <li><a href="#" id="logout-button"><i class="fa fa-unlock-alt"></i> Salir</a></li>
+                                </ul>
                         </li>
                         <!-- /Account -->
 
@@ -225,7 +232,6 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">Blog</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="#"><span class="nav-featured">Primavera</span></a></li>
                     <li><a href="#"><span class="nav-featured">Promociones</span></a></li>

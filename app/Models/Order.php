@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Enums\OrderStates;
 use App\Traits\IdentityTrait;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -15,6 +16,7 @@ class Order extends Model
     use SoftDeletes;
     use HasTimestamps;
     use IdentityTrait;
+    use HasFactory;
 
     public static function create(
         array $product,

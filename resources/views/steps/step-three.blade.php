@@ -59,9 +59,13 @@
 
             <!-- row -->
             <div class="row">
+                <div class="col-md-12 steps-card">
+                    <h1>Método de pago</h1>
+                    <p>Aquí debe seleccionar el método que utilizará para realizar el pago.</p>
+                </div>
                 <!--  Product Details -->
-                <div class="product product-details clearfix">
-                    <div class="row">
+                <div class="col-md-12 product product-details clearfix justify-center payment-step">
+                    <div class="row w-100">
                         <div class="col-md-6 justify-content-center">
                             <div class="m-card payment-card text-center">
                                 <div>

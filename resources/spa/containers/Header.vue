@@ -396,6 +396,27 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#slider">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Sliders</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="slider">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="app#/slider/list">
+                                            <span class="sub-item">Lista</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="app#/slider/create">
+                                            <span class="sub-item">Crear</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

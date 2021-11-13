@@ -19,7 +19,7 @@ class CreateComplementsTable extends Migration
             $table->unsignedDouble('price');
             $table->text('content')->nullable()->default(null);
             $table->json('images')->nullable()->default(null);
-            $table->unsignedSmallInteger('category_id');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
             $table->softDeletes();
         });

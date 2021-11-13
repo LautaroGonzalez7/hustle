@@ -44,13 +44,18 @@
                                         <div class="col-md-9">
                                             <p class="order-state text-success">{{$order->state}}</p>
                                             <p class="order-description">
-                                                <span>{{json_decode($order->shipment, true)["date"]}}</span>
-                                                <span>{{json_decode($order->shipment, true)["hour"]}}</span>
+                                                <span><b>Día de entrega:</b> {{json_decode($order->shipment, true)["date"]}}</span>
+                                            </p>
+                                            <p class="order-description">
+                                                <span><b>Horario de entrega:</b> {{json_decode($order->shipment, true)["hour"]}}</span>
+                                            </p>
+                                            <p class="order-description">
+                                                <span><b>Método de pago:</b> {{json_decode($order->payment, true)["type"] === 1 ? "Transferencia bancaria" : "Stripe"}}</span>
                                             </p>
                                             <p class="order-description">{{json_decode($order->product, true)["content"]}}</p>
                                         </div>
                                         <div class="col-md-2 order-button">
-                                            <a href="#" class="primary-btn add-to-cart">Ver producto</a>
+                                            <a href="{{route('single.product', json_decode($order->product, true)["id"])}}" class="primary-btn add-to-cart">Ver producto</a>
                                         </div>
                                     </div>
                                 </div>

@@ -32,8 +32,7 @@
                                     <div class="product product-single">
                                         <div class="product-thumb">
                                             <div class="product-label">
-                                                <span>Nuevo</span>
-                                                <span class="sale">-20%</span>
+                                                <span class="sale">{{round(($product->price - $product->old_price) * 100 / $product->price)}}%</span>
                                             </div>
                                             <a href="{{url('/single-product/'.$product->id)}}"
                                                class="main-btn quick-view"><i
@@ -48,12 +47,6 @@
                                                 <del class="product-old-price">S/{{$product->old_price}}</del>
                                             </h3>
                                             <h2 class="product-name"><a href="#">{{$product->name}}</a></h2>
-                                            <div class="product-btns">
-                                                <button class="primary-btn add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>
-                                                    Agregar al carrito
-                                                </button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

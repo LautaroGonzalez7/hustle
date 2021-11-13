@@ -49,14 +49,17 @@
 
             <!-- row -->
             <div class="row">
+                <div class="col-md-12 steps-card">
+                    <h1>Dedicatoria</h1>
+                    <p>Aquí podrá escribir la dedicatoria que recibirá la persona.</p>
+                </div>
                 <!--  Product Details -->
-                <div class="product product-details clearfix">
-                   Dedicatoria:
-                    <form action="{{route('session.addMessage.post')}}" method="post">
+                <div class="col-md-12 product product-details clearfix">
+                    <form action="{{route('session.addMessage.post')}}" method="post" class="form-dedicatory">
                         @csrf
-                        <textarea name="message" type="text" class="form-control">{{$message}}</textarea>
-                        <button class="primary-btn add-to-cart col-md-12">
-                            <i class="fa fa-shopping-cart"></i>Continuar
+                        <textarea name="message" type="text" class="textarea-paper">{{$message}}</textarea>
+                        <button class="primary-btn add-to-cart col-md-3">
+                            Continuar
                         </button>
                     </form>
                 </div>

@@ -51,8 +51,7 @@
                     <div class="col-md-6">
                         <div class="product-body">
                             <div class="product-label">
-                                <span>Nuevo</span>
-                                <span class="sale">-20%</span>
+                                <span class="sale">-{{round(($product->price - $product->old_price) * 100 / $product->price)}}%</span>
                             </div>
                             <h2 class="product-name">{{$product->name}}</h2>
                             <h3 class="product-price">S/{{$product->price}}
@@ -62,124 +61,108 @@
                             <hr>
                             <h3 class="product-section">1- Seleccionar horario</h3>
                             <div data-v-b4f612e4=""
-                                 class="col-md-12 d-flex flex-column flex-lg-row calendar-buttons p-0"
+                                 class="col-md-12 d-flex flex-column flex-lg-row p-0"
                                  style="display: flex;">
-                                <div data-v-b4f612e4=""
-                                     class="schedule-select p-0 mr-1 w-100 schedule-select option-select mb-1"
-                                     style="width: 150px;margin: 0 15px 0 0;">
-                                    <button type="button" data-toggle="collapse" aria-expanded="true"
-                                            aria-controls="schedules20200817" data-target="#schedules20200817"
-                                            class="btn btn-lg w-100 btn-outline-secondary size-14 shortcut-date-text btn-outline-secondary"
-                                            style="height: 68px;background: #fff;border: 1px solid;width: 100%;">
-                                        <p class="size-16 font-weight-bold mb-0" style="
+                                <div class="row w-100">
+                                    <div class="schedule-select p-0 mr-1 col-md-4 schedule-select option-select mb-1">
+                                        <button type="button" data-toggle="collapse" aria-expanded="true"
+                                                aria-controls="schedules20200817" data-target="#schedules20200817"
+                                                class="calendar-card">
+                                            <p class="size-16 font-weight-bold mb-0" style="
     font-weight: bold;
     margin: 0;
 ">Hoy</p>
-                                        <span id="todayDate"></span>
-                                    </button>
-                                    <div id="schedules20200817" class="collapse" style="width: 150px;">
-                                        <div aria-labelledby="dropdownMenuButton"
-                                             class="btn btn-block border-0 mt-0 p-0" style="padding: 0;">
-                                            <div value="0"
-                                                 onclick="optionToday('8:00-11:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                8:00AM - 11:00AM
-                                            </div>
-                                            <div value="1"
-                                                 onclick="optionToday('11:00-14:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                11:00AM - 2:00PM
-                                            </div>
-                                            <div value="2"
-                                                 onclick="optionToday('14:00-17:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                2:00PM - 5:00PM
-                                            </div>
-                                            <div value="3"
-                                                 onclick="optionToday('17:00-20:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 unselectable"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                5:00PM - 8:00PM
-                                            </div>
-                                        </div> <!---->
+                                            <span id="todayDate"></span>
+                                        </button>
+                                        <div id="schedules20200817" class="collapse">
+                                            <div aria-labelledby="dropdownMenuButton" class="text-center">
+                                                <div value="0"
+                                                     onclick="optionToday('8:00-11:00')"
+                                                     class="calendar-buttons calendar-buttons-disabled">
+                                                    8:00AM - 11:00AM
+                                                </div>
+                                                <div value="1"
+                                                     onclick="optionToday('11:00-14:00')"
+                                                     class="calendar-buttons calendar-buttons-disabled">
+                                                    11:00AM - 2:00PM
+                                                </div>
+                                                <div value="2"
+                                                     onclick="optionToday('14:00-17:00')"
+                                                     class="calendar-buttons calendar-buttons-disabled">
+                                                    2:00PM - 5:00PM
+                                                </div>
+                                                <div value="3"
+                                                     onclick="optionToday('17:00-20:00')"
+                                                     class="calendar-buttons unselectable">
+                                                    5:00PM - 8:00PM
+                                                </div>
+                                            </div> <!---->
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div data-v-b4f612e4=""
-                                     class="schedule-select p-0 mr-1 w-100 schedule-select option-select mb-1"
-                                     style="width: 150px;margin: 0 15px 0 0;">
-                                    <button type="button" data-toggle="collapse" aria-expanded="true"
-                                            aria-controls="schedules20200818" data-target="#schedules20200818"
-                                            class="btn btn-lg w-100 btn-outline-secondary size-14 shortcut-date-text btn-outline-secondary"
-                                            style="height: 68px;background: #fff;border: 1px solid;width: 100%;">
-                                        <p class="size-16 font-weight-bold mb-0" style="font-weight: bold;margin: 0;">
-                                            Mañana</p>
-                                        <span id="tomorrowDate"></span>
-                                    </button>
-                                    <div id="schedules20200818" class="collapse" style="width: 150px;">
-                                        <div aria-labelledby="dropdownMenuButton"
-                                             class="btn btn-block border-0 mt-0 p-0" style="padding: 0;">
-                                            <div value="0"
-                                                 onclick="optionTomorrow('8:00-11:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                8:00AM - 11:00AM
-                                            </div>
-                                            <div value="1"
-                                                 onclick="optionTomorrow('11:00-14:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                11:00AM - 2:00PM
-                                            </div>
-                                            <div value="2"
-                                                 onclick="optionTomorrow('14:00-17:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 disabled"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                2:00PM - 5:00PM
-                                            </div>
-                                            <div value="3"
-                                                 onclick="optionTomorrow('17:00-20:00')"
-                                                 class="list-item border btn btn-sm btn-outline-secondary border-1 my-1 mx-0 text-center p-0 py-1 unselectable"
-                                                 style="display: block;border: 1px solid;margin: 3px 0;">
-                                                5:00PM - 8:00PM
-                                            </div>
-                                        </div> <!----> <!----><!----><!---->
+                                    <div class="schedule-select p-0 mr-1 col-md-4 schedule-select option-select mb-1">
+                                        <button type="button" data-toggle="collapse" aria-expanded="true"
+                                                aria-controls="schedules20200818" data-target="#schedules20200818"
+                                                class="calendar-card">
+                                            <p class="size-16 font-weight-bold mb-0" style="font-weight: bold;margin: 0;">
+                                                Mañana</p>
+                                            <span id="tomorrowDate"></span>
+                                        </button>
+                                        <div id="schedules20200818" class="collapse">
+                                            <div aria-labelledby="dropdownMenuButton" class="text-center">
+                                                <div value="0"
+                                                     onclick="optionTomorrow('8:00-11:00')"
+                                                     class="calendar-buttons calendar-buttons-disabled">
+                                                    8:00AM - 11:00AM
+                                                </div>
+                                                <div value="1"
+                                                     onclick="optionTomorrow('11:00-14:00')"
+                                                     class="calendar-buttons calendar-buttons-disabled">
+                                                    11:00AM - 2:00PM
+                                                </div>
+                                                <div value="2"
+                                                     onclick="optionTomorrow('14:00-17:00')"
+                                                     class="calendar-buttons calendar-buttons-disabled">
+                                                    2:00PM - 5:00PM
+                                                </div>
+                                                <div value="3"
+                                                     onclick="optionTomorrow('17:00-20:00')"
+                                                     class="calendar-buttons unselectable">
+                                                    5:00PM - 8:00PM
+                                                </div>
+                                            </div> <!----> <!----><!----><!---->
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div data-v-b4f612e4="" class="p-0 w-100 schedule-select schedule-select option-select"
-                                     id="calendar-input-button" style="width: 170px;">
-                                    <button type="button" data-toggle="modal" data-target="#calendarModal"
-                                            class="btn btn-lg w-100 btn-outline-secondary dropdown w-100 p-0 pointer"
-                                            style="height: 68px;background: #fff;border: 1px solid;width: 100%;">
-                                        <div class="d-flex flex-column h-100">
-                                            <div
-                                                class="d-flex flex-column delivery-selector m-0 p-0 border-0 h-100 selected">
+                                    <div class="p-0 col-md-4 schedule-select schedule-select option-select"
+                                         id="calendar-input-button">
+                                        <button type="button" data-toggle="modal" data-target="#calendarModal"
+                                                class="calendar-card">
+                                            <div class="d-flex flex-column h-100">
                                                 <div
-                                                    class="size-14 size-lg-12 size-xl-14 input-content d-flex p-0 h-100">
-                                                    <div class="d-flex w-100">
+                                                    class="d-flex flex-column delivery-selector m-0 p-0 border-0 h-100 selected">
+                                                    <div
+                                                        class="size-14 size-lg-12 size-xl-14 input-content d-flex p-0 h-100">
                                                         <div class="d-flex w-100">
-                                                            <i class="icon-calendar opacity-25 size-24 d-flex align-items-center px-1"></i>
-                                                            <div
-                                                                class="input-text flex-fill schedule-content w-100 d-flex align-items-center">
-                                                                <div class="text-center w-100" id="customDate">
-                                                                    <p class="mb-0"
-                                                                       style="font-weight: bold;margin: 0;">Otra
-                                                                        fecha</p>
-                                                                    Seleccionar...<br>
-                                                                    <div>
+                                                            <div class="d-flex w-100">
+                                                                <i class="icon-calendar opacity-25 size-24 d-flex align-items-center px-1"></i>
+                                                                <div
+                                                                    class="input-text flex-fill schedule-content w-100 d-flex align-items-center">
+                                                                    <div class="text-center w-100" id="customDate">
+                                                                        <p class="mb-0" style="font-weight: bold;margin: 0;">
+                                                                            Otra fecha</p>
+                                                                        <span id="otherDate">Seleccionar...</span>
+                                                                        <div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div> <!----> <!----> <!---->
+                                                    </div> <!----> <!----> <!---->
+                                                </div>
                                             </div>
-                                        </div>
-                                    </button>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -192,12 +175,12 @@
                                     <!-- banner -->
                                         <div class="banner banner-1">
                                             <div style="padding: 5px">
-                                                <div style="border: 1px solid">
-                                                    <h5>{{$complement->name}}</h5>
+                                                <div class="complement-card">
+                                                    <h5 class="complement-title">{{$complement->name}}</h5>
                                                     <img class="banner-img-fit-complements"
                                                          src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
                                                          alt="">
-                                                    <div class="banner-caption text-center">
+                                                    <div class="complement-button text-center">
                                                         <button class="primary-btn" onclick="optionComplement(event, {{$complement->id}})">Añadir</button>
                                                     </div>
                                                 </div>
@@ -295,27 +278,27 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script>
+        const months = {
+            1: 'Enero',
+            2: 'Febrero',
+            3: 'Marzo',
+            4: 'Abril',
+            5: 'Mayo',
+            6: 'Junio',
+            7: 'Julio',
+            8: 'Agosto',
+            9: 'Septiembre',
+            10: 'Octubre',
+            11: 'Noviembre',
+            12: 'Diciembre'
+        }
+
         $(document).ready(function () {
             let d = new Date();
             const todayDay = `${d.getDate()}`
             const todayMonth = `${d.getMonth() + 1}`
             const tomorrowDay = `${d.getDate() + 1}`
             const tomorrowMonth = `${d.getMonth() + 1}`
-
-            const months = {
-                1: 'Enero',
-                2: 'Febrero',
-                3: 'Marzo',
-                4: 'Abril',
-                5: 'Mayo',
-                6: 'Junio',
-                7: 'Julio',
-                8: 'Agosto',
-                9: 'Septiembre',
-                10: 'Octubre',
-                11: 'Noviembre',
-                12: 'Diciembre'
-            }
 
             $('#todayDate').html(`${todayDay} de ${months[todayMonth]}`);
             $('#tomorrowDate').html(`${tomorrowDay} de ${months[tomorrowMonth]}`);
@@ -329,10 +312,10 @@
         $(".date-picker-2").datepicker({
             onSelect: (dateText) => {
                 let d = new Date(dateText);
-                const fullDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
-                let html = `<button  class="calendar-buttons3" onclick="option('8:00-9:00', '${fullDate}')">8:00 am – 9:00 am</button>`;
-                html += `<button  class="calendar-buttons3" onclick="option('10:00-12:00', '${fullDate}')">10:00 am – 12:00 pm</button>`;
-                html += `<button  class="calendar-buttons3" onclick="option('12:00-14:00', '${fullDate}')">12:00 am – 2:00 pm</button>`;
+                const fullDate = `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`
+                let html = `<button  class="calendar-buttons" onclick="option('8:00-9:00', '${fullDate}')">8:00 am – 9:00 am</button>`;
+                html += `<button  class="calendar-buttons" onclick="option('10:00-12:00', '${fullDate}')">10:00 am – 12:00 pm</button>`;
+                html += `<button  class="calendar-buttons" onclick="option('12:00-14:00', '${fullDate}')">12:00 am – 2:00 pm</button>`;
                 $('#hour-buttons').html(html);
             }
         });
@@ -340,11 +323,17 @@
         function option(hour, date) {
             $('#shipmentHour').val(hour);
             $('#shipmentDate').val(date);
+
+            const otherDate = new Date(date)
+            const otherDay = `${otherDate.getDate()}`
+            const otherMonth = `${otherDate.getMonth() + 1}`
+
+            $('#otherDate').html(`${otherDay} de ${months[otherMonth]}`);
         }
 
         function optionToday(hour) {
             let d = new Date();
-            const fullDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+            const fullDate = `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`
 
             $('#shipmentHour').val(hour);
             $('#shipmentDate').val(fullDate);
@@ -352,7 +341,7 @@
 
         function optionTomorrow(hour) {
             let d = new Date();
-            const fullDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate() + 1}`
+            const fullDate = `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate() + 1}`
 
             $('#shipmentHour').val(hour);
             $('#shipmentDate').val(fullDate);
@@ -375,6 +364,11 @@
 
             $('#complements').val(complements);
         }
+
+        $(document).on("click", ".calendar-buttons", function(){
+            $('.calendar-buttons').removeClass('calendar-buttons-selected');
+            $(this).addClass('calendar-buttons-selected');
+        });
 
         $('#customDate').click(function () {
             $('#customDateModal').modal('show');

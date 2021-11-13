@@ -71,5 +71,12 @@ Route::middleware(['auth'])->group(
         $router->get('/complement/{id}', [Controllers\Complement\GetComplementController::class, '__invoke'])->name('complement.get');
         $router->get('/complement', [Controllers\Complement\IndexComplementController::class, '__invoke'])->name('complement.getAll');
         $router->post('/complement/{id}/images', [Controllers\Complement\AddImagesComplementController::class, '__invoke'])->name('complement.images');
+
+        // SLIDER
+        $router->post('/slider', [Controllers\Slider\CreateSliderController::class, '__invoke'])->name('slider.post');
+        $router->put('/slider/{id}', [Controllers\Slider\UpdateSliderController::class, '__invoke'])->name('slider.put');
+        $router->get('/slider/{id}', [Controllers\Slider\GetSliderController::class, '__invoke'])->name('slider.get');
+        $router->get('/slider', [Controllers\Slider\IndexSliderController::class, '__invoke'])->name('slider.getAll');
+        $router->post('/slider/{id}/images', [Controllers\Slider\AddImagesSliderController::class, '__invoke'])->name('slider.images');
     }
 );
