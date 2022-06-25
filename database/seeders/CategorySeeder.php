@@ -14,12 +14,12 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $names = ['Día del padre', 'San Valentín', 'Rosas', 'Arreglos florales'];
+        $names = ['Día del padre', 'San Valentín', 'Rosas', 'Arreglos florales', 'Chocolates', 'Peluches', 'Globos'];
 
-        for ($i = 0; $i <= 3; $i++){
+        for ($i = 0; $i <= 6; $i++){
             Category::factory()->create([
                 "name" => $names[$i],
-                "scope" => "scope"
+                "scope" => $i <= 3 ? 'products' : 'complements'
             ]);
         }
     }

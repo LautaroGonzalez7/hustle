@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Complement;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ class ProductController extends Controller
 {
     public function products()
     {
-        $products = Product::paginate(12);
+        $products = Product::orderBy('order', 'ASC')->paginate(12);
 
         return view('products', ['products' => $products]);
     }
@@ -21,6 +22,12 @@ class ProductController extends Controller
 
         $complements = Complement::all();
 
-        return view('single-product', ['product' => $product, 'complements' => $complements]);
+        $complementCategories = Category::where('scope', 'complements')->with('complement')->get();
+
+        return view('single-product', [
+            'product' => $product,
+            'complements' => $complements,
+            'complementCategories' => $complementCategories
+        ]);
     }
 }

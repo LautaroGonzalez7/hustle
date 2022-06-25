@@ -54,4 +54,9 @@ class Category extends Model
         return $this->hasMany('App\Models\Product');
     }
 
+    public function complement()
+    {
+        return $this->hasMany('App\Models\Complement');
+    }
+
 }

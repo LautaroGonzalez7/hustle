@@ -66,7 +66,7 @@
                 <!--  Product Details -->
                 <div class="col-md-12 product product-details clearfix justify-center payment-step">
                     <div class="row w-100">
-                        <div class="col-md-6 justify-content-center">
+                        <div class="col-md-4 justify-content-center">
                             <div class="m-card payment-card text-center">
                                 <div>
                                     <img src="{{asset('/assets/img/icons/money-transfer.svg')}}"
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="m-card payment-card text-center">
                                 <div>
                                     <img src="{{asset('/assets/img/icons/credit-cards.svg')}}" class="card-img-top"
@@ -87,6 +87,18 @@
                                         <h5 class="card-title">Tarjeta de crédito/débito</h5>
                                         <button id="checkout-button" class="primary-btn add-to-cart col-md-12">Seleccionar</button>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 justify-content-center">
+                            <div class="m-card payment-card text-center">
+                                <div>
+                                    <img src="https://www.yape.com.pe/assets/images/logo.png"
+                                         class="card-img-top" width="100px" height="100px">
+                                    <div class="card-body payment-title">
+                                        <h5 class="card-title">YAPE</h5>
+                                    </div>
+                                    <a href="{{route('addYapeOrder')}}" class="primary-btn add-to-cart col-md-12">Seleccionar</a>
                                 </div>
                             </div>
                         </div>

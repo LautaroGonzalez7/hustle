@@ -104,7 +104,8 @@
                                         <button type="button" data-toggle="collapse" aria-expanded="true"
                                                 aria-controls="schedules20200818" data-target="#schedules20200818"
                                                 class="calendar-card">
-                                            <p class="size-16 font-weight-bold mb-0" style="font-weight: bold;margin: 0;">
+                                            <p class="size-16 font-weight-bold mb-0"
+                                               style="font-weight: bold;margin: 0;">
                                                 Mañana</p>
                                             <span id="tomorrowDate"></span>
                                         </button>
@@ -149,7 +150,8 @@
                                                                 <div
                                                                     class="input-text flex-fill schedule-content w-100 d-flex align-items-center">
                                                                     <div class="text-center w-100" id="customDate">
-                                                                        <p class="mb-0" style="font-weight: bold;margin: 0;">
+                                                                        <p class="mb-0"
+                                                                           style="font-weight: bold;margin: 0;">
                                                                             Otra fecha</p>
                                                                         <span id="otherDate">Seleccionar...</span>
                                                                         <div>
@@ -170,24 +172,46 @@
                             <br>
                             <h3 class="product-section">2- Seleccionar Complementos (opcional)</h3>
                             <div class="row">
-                                <div class="complements-slick" id="complements-slick">
-                                @foreach ($complements as $complement)
-                                    <!-- banner -->
-                                        <div class="banner banner-1">
-                                            <div style="padding: 5px">
-                                                <div class="complement-card">
-                                                    <h5 class="complement-title">{{$complement->name}}</h5>
-                                                    <img class="banner-img-fit-complements"
-                                                         src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
-                                                         alt="">
-                                                    <div class="complement-button text-center">
-                                                        <button class="primary-btn" onclick="optionComplement(event, {{$complement->id}})">Añadir</button>
+                                <div class="col-md-9">
+                                    <div class="complements-slick" id="complements-slick">
+                                    @foreach ($complements as $complement)
+                                        <!-- banner -->
+                                            <div class="banner banner-1">
+                                                <div style="padding: 5px">
+                                                    <div class="complement-card">
+                                                        <h5 class="complement-title">{{$complement->name}}</h5>
+                                                        <div class="complement-content">
+                                                            <img class="banner-img-fit-complements"
+                                                                 src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
+                                                                 alt="">
+                                                            <div class="complement-button text-center">
+                                                                <button class="primary-btn"
+                                                                        onclick="optionComplement(event, {{$complement->id}})">
+                                                                    Añadir
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- /banner -->
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div style="padding: 5px">
+                                        <div class="complement-card">
+                                            <h5 class="complement-title">Ver todos</h5>
+                                            <div class="complement-content">
+                                                <a class="complement-plus-link" id="complementPlusLink">
+                                                    <img class="complement-plus"
+                                                         src="{{asset('assets/img/icons/plus.svg')}}"
+                                                         alt="">
+                                                    <h5 style="padding: 5px">Ver más</h5>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <!-- /banner -->
-                                    @endforeach
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -263,6 +287,72 @@
                     <div class="row" style="padding:15px">
                         <div class="col-md-12">
                             <div class="date-picker-2"></div>
+                        </div>
+                        <div class="col-md-4" style="padding-top: 7px" id="hour-buttons"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complement Modal-->
+    <div class="modal fade" id="complementsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">SELECCIONAR COMPLEMENTO</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="padding:15px">
+                        <div class="col-md-12">
+                            @foreach($complementCategories as $complementCategory)
+                                <div class="complement-category-btn-container">
+                                    <a class="btn primary-btn w-100 complement-category-btn" data-toggle="collapse"
+                                       href="#complementCategory{{$complementCategory->id}}" role="button"
+                                       aria-expanded="false"
+                                       onclick="rotateIcon('complementCategoryIcon'+{{$complementCategory->id}})">
+                                        <span>{{$complementCategory->name}}</span>
+                                        <img id="complementCategoryIcon{{$complementCategory->id}}"
+                                             src="{{asset('assets/img/icons/arrow-down.svg')}}" style="width: 20px;">
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="collapse multi-collapse"
+                                             id="complementCategory{{$complementCategory->id}}">
+                                            <div class="card card-body">
+                                                @foreach($complementCategory->complement as $complement)
+                                                    <div class="col-md-5">
+                                                        <div style="padding: 5px">
+                                                            <div class="complement-card">
+                                                                <h5 class="complement-title">{{$complement->name}}</h5>
+                                                                <div class="complement-content">
+                                                                    <img class="banner-img-fit-complements"
+                                                                         src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
+                                                                         alt="">
+                                                                    <div class="complement-button text-center">
+                                                                        <button class="primary-btn"
+                                                                                onclick="optionComplement(event, {{$complement->id}})">
+                                                                            Añadir
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="col-md-4" style="padding-top: 7px" id="hour-buttons"></div>
                     </div>
@@ -351,10 +441,10 @@
             let complements = $('#complements').val();
             complements = complements.split(',');
 
-            if(complements.includes(String(id))){
+            if (complements.includes(String(id))) {
                 complements = complements.filter(c => c !== String(id));
                 event.target.innerHTML = 'Añadir'
-            }else{
+            } else {
                 complements.push(String(id));
                 event.target.innerHTML = 'Quitar'
             }
@@ -365,7 +455,7 @@
             $('#complements').val(complements);
         }
 
-        $(document).on("click", ".calendar-buttons", function(){
+        $(document).on("click", ".calendar-buttons", function () {
             $('.calendar-buttons').removeClass('calendar-buttons-selected');
             $(this).addClass('calendar-buttons-selected');
         });
@@ -373,6 +463,18 @@
         $('#customDate').click(function () {
             $('#customDateModal').modal('show');
         });
+
+        $('#complementPlusLink').click(function () {
+            $('#complementsModal').modal('show');
+        });
+
+        function rotateIcon(id) {
+            if (document.getElementById(id).style.transform === 'rotate(180deg)') {
+                document.getElementById(id).style.transform = 'rotate(0deg)'
+            } else {
+                document.getElementById(id).style.transform = 'rotate(180deg)'
+            }
+        }
     </script>
     <style>
         .ui-datepicker {

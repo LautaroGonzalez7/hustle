@@ -54,8 +54,8 @@
                     <p>Aquí debe completar los datos de la persona quién recibe.</p>
                 </div>
                 <!--  Product Details -->
-                <div class="col-md-12 product product-details clearfix justify-center">
-                    <form action="{{route('session.addShipmentInformation.post')}}" method="post" class="col-md-6 form-shipment">
+                <div class="col-md-6 product product-details clearfix justify-center">
+                    <form action="{{route('session.addShipmentInformation.post')}}" method="post" class="col-md-12 form-shipment">
                         @csrf
                         <div class="col-md-12">
                             <label for="name">Nombre completo</label>
@@ -66,11 +66,15 @@
                             <input name="address" id="address" type="text" class="form-control" placeholder="Pellegrini 211" value="{{$shipment['address'] ?? ''}}" />
                             <label for="phone">Teléfono</label>
                             <input name="phone" id="phone" type="text" class="form-control" placeholder="555-555555" value="{{$shipment['phone'] ?? ''}}" />
+                            <input name="coordinates" id="coordinates" type="hidden" />
                         </div>
                         <button class="primary-btn add-to-cart col-md-3">
                             Continuar
                         </button>
                     </form>
+                </div>
+                <div class="col-md-6 map-container">
+                    <div id="googleMap" style="width: 100%; height: 450px"></div>
                 </div>
                 <!-- /Product Details -->
             </div>
@@ -79,4 +83,44 @@
         <!-- /container -->
     </div>
     <!-- /section -->
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBzCca5m8N-aLM0HiEKKL8zEvqeBwJNhVo&libraries=places"></script>
+    <script type="text/javascript">
+        function initialize() {
+            // Configuración del mapa
+            var mapProp = {
+                center: new google.maps.LatLng(-13.5291201, -71.9688277),
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            // Agregando el mapa al tag de id googleMap
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            // Creando la imagen del marker
+            var image = {
+                url: '/assets/img/icons/flower-marker.svg',
+                scaledSize : new google.maps.Size(42, 42)
+            };
+
+            // Creando un marker en el mapa
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(-13.5291201, -71.9688277),
+                map: map,
+                icon: image,
+                title: 'Hello World!',
+                draggable: true //que el marcador se pueda arrastrar
+            });
+
+            // Registrando el evento drag, en este caso imprime
+            // en consola la latitud y longitud
+            google.maps.event.addListener(marker,'drag',function(event) {
+                let lat = event.latLng.lat();
+                let lng = event.latLng.lng();
+                $('#coordinates').val(`${lat},${lng}`);
+            });
+
+        }
+
+        // Inicializando el mapa cuando se carga la página
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 @endsection

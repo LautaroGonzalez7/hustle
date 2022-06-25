@@ -39,6 +39,8 @@ class SessionController extends Controller
         $request->session()->put('buy.shipment.district', $request->input('district'));
         $request->session()->put('buy.shipment.address', $request->input('address'));
         $request->session()->put('buy.shipment.phone', $request->input('phone'));
+        $request->session()->put('buy.shipment.coordinates.lat', explode(',', $request->input('coordinates'))[0]);
+        $request->session()->put('buy.shipment.coordinates.lng', explode(',', $request->input('coordinates'))[1]);
 
         return redirect()->route('stepThree.get');
     }

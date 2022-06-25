@@ -34,6 +34,7 @@ Route::get('/steph-three', [Controllers\Steps\StepController::class, 'stepThree'
 //Orders
 Route::get('/my-orders', [Controllers\Order\OrderController::class, 'getAll'])->name('getAll');
 Route::get('/order', [Controllers\Order\OrderController::class, 'addOrder'])->name('addOrder');
+Route::get('/order-yape', [Controllers\Order\OrderController::class, 'addYapeOrder'])->name('addYapeOrder');
 Route::get('/order-stripe', [Controllers\Order\OrderController::class, 'addStripeOrder'])->name('addStripeOrder');
 
 //Stripe
