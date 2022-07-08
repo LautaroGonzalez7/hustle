@@ -84,7 +84,6 @@ export default class extends Vue {
     protected successCreate: boolean = false;
     protected failedCreate: boolean = false;
 
-    protected complementClient = new ComplementApiClient();
     protected categoryClient = new CategoryApiClient();
 
     async mounted() {
@@ -92,7 +91,8 @@ export default class extends Vue {
     }
 
     private async create() {
-        const complementResponse = await this.complementClient.create(this.complement);
+        const complementClient = new ComplementApiClient();
+        const complementResponse = await complementClient.create(this.complement);
 
         if (!complementResponse.error) {
             this.successCreate = true;
@@ -110,7 +110,8 @@ export default class extends Vue {
     }
 
     private async addImages(complementId: number) {
-        const complementResponse = await this.complementClient.addImages(complementId, this.images);
+        const complementClient = new ComplementApiClient();
+        const complementResponse = await complementClient.addImages(complementId, this.images);
 
         if (!complementResponse.error) {
             this.successCreate = true;

@@ -15,14 +15,20 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->json('product')->nullable()->default(null);
+            $table->json('productDetail')->nullable()->default(null);
             $table->json('payment')->nullable()->default(null);
             $table->json('shipment')->nullable()->default(null);
             $table->json('complements')->nullable()->default(null);
             $table->string('state');
-            $table->unsignedSmallInteger('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->json('images')->nullable()->default(null);
+            $table->double('total');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('product_id')->nullOnDelete()->references('id')->on('products');
         });
     }
 
@@ -33,6 +39,10 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['product_id']);
+        });
         Schema::dropIfExists('orders');
     }
 }

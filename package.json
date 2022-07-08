@@ -33,12 +33,13 @@
         "popper.js": "^1.16.1",
         "vee-validate": "^3.4.13",
         "vue": "^2.6.14",
-        "vue-template-compiler": "^2.6.14",
         "vue-class-component": "^7.2.6",
         "vue-clickaway": "2.2.2",
         "vue-cookies": "^1.7.0",
         "vue-loader": "^15.9.8",
+        "vue-material-design-icons": "^5.1.1",
         "vue-router": "3.0.1",
+        "vue-template-compiler": "^2.6.14",
         "webpack": "^5.57.1"
     }
 }

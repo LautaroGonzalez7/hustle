@@ -32,8 +32,9 @@ Route::get('/steph-two', [Controllers\Steps\StepController::class, 'stepTwo'])->
 Route::get('/steph-three', [Controllers\Steps\StepController::class, 'stepThree'])->name('stepThree.get');
 
 //Orders
-Route::get('/my-orders', [Controllers\Order\OrderController::class, 'getAll'])->name('getAll');
-Route::get('/order', [Controllers\Order\OrderController::class, 'addOrder'])->name('addOrder');
+Route::get('/my-orders', [Controllers\Order\OrderController::class, 'getAll'])->name('myOrders');
+Route::post('/order/{id}', [Controllers\Order\OrderController::class, 'uploadInvoice'])->name('uploadInvoice');
+Route::get('/order-bank', [Controllers\Order\OrderController::class, 'addOrder'])->name('addBankOrder');
 Route::get('/order-yape', [Controllers\Order\OrderController::class, 'addYapeOrder'])->name('addYapeOrder');
 Route::get('/order-stripe', [Controllers\Order\OrderController::class, 'addStripeOrder'])->name('addStripeOrder');
 
@@ -79,5 +80,8 @@ Route::middleware(['auth'])->group(
         $router->get('/slider/{id}', [Controllers\Slider\GetSliderController::class, '__invoke'])->name('slider.get');
         $router->get('/slider', [Controllers\Slider\IndexSliderController::class, '__invoke'])->name('slider.getAll');
         $router->post('/slider/{id}/images', [Controllers\Slider\AddImagesSliderController::class, '__invoke'])->name('slider.images');
+
+        // ORDER
+        $router->get('/order', [Controllers\Order\IndexOrderController::class, '__invoke'])->name('order.getAll');
     }
 );

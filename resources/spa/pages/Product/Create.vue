@@ -48,7 +48,7 @@
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label for="images">Imágenes</label>
-                                        <input type="file" class="form-control" id="images" multiple
+                                        <input type="file" class="form-control" ref="images" multiple
                                                @change="onFileChange($event)">
                                     </div>
                                 </div>
@@ -92,7 +92,6 @@ export default class extends Vue {
     protected successCreate: boolean = false;
     protected failedCreate: boolean = false;
 
-    protected productClient = new ProductApiClient();
     protected categoryClient = new CategoryApiClient();
 
     async mounted() {
@@ -100,10 +99,10 @@ export default class extends Vue {
     }
 
     private async create() {
-        const productResponse = await this.productClient.create(this.product);
+        const productClient = new ProductApiClient();
+        const productResponse = await productClient.create(this.product);
 
         if (!productResponse.error) {
-            this.successCreate = true;
             this.product = {
                 name: '',
                 price: '',
@@ -113,19 +112,28 @@ export default class extends Vue {
             };
 
             await this.addImages(productResponse.data.data.id);
+
+            this.images = [];
         } else {
             this.failedCreate = true;
         }
+
+        setTimeout(() => {
+            this.successCreate = false;
+        }, 2000)
     }
 
     private async addImages(productId: number) {
-        const productResponse = await this.productClient.addImages(productId, this.images);
+        const productClient = new ProductApiClient();
+        const imageResponse = await productClient.addImages(productId, this.images);
 
-        if (!productResponse.error) {
+        if (!imageResponse.error) {
             this.successCreate = true;
         } else {
             this.failedCreate = true;
         }
+
+        (this.$refs['images'] as any).value = '';
     }
 
     private async getCategories() {

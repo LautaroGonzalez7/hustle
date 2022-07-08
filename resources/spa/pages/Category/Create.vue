@@ -66,6 +66,10 @@ export default class extends Vue {
         }else{
             this.failedCreate = true;
         }
+
+        setTimeout(() => {
+            this.successCreate = false;
+        }, 2000)
     }
 
 }

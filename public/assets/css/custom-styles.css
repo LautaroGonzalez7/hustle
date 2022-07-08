@@ -454,10 +454,8 @@ a:hover, a:focus {
 }
 
 .order-card .order-state {
-    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    font-weight: bolder;
-    margin: 0;
+    padding: 5px 10px;
+    font-size: 16px;
 }
 
 .order-card i {
@@ -476,11 +474,18 @@ a:hover, a:focus {
     margin: 10px 0;
 }
 
-.order-card .order-title {
+.order-card .order-header {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
     padding: 10px 24px;
     margin: 0;
     color: rgba(0, 0, 0, .8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-header .order-title {
+    margin: 0;
 }
 
 .order-card .order-content {
@@ -496,6 +501,18 @@ a:hover, a:focus {
 
 .order-card .order-description {
     color: rgba(0, 0, 0, .45);
+}
+
+.order-card .order-invoices-container {
+    display: flex;
+}
+
+.order-card .order-upload-invoice-container {
+    padding: 9px 24px 24px;
+}
+
+.order-upload-invoice-container .order-upload-invoice-names {
+    font-weight: bold;
 }
 
 /*Calendar product*/

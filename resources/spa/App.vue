@@ -11,7 +11,7 @@ import Component from "vue-class-component";
 @Component({
     watch: {
         '$route'(to, from) {
-            document.title = to.meta.title || 'Teen'
+            document.title = to.meta.title || 'Magnolias'
         }
     },
 })

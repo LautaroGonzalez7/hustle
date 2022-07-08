@@ -74,7 +74,7 @@
                                     <div class="card-body payment-title">
                                         <h5 class="card-title">Transferencia bancaria</h5>
                                     </div>
-                                    <a href="{{route('addOrder')}}" class="primary-btn add-to-cart col-md-12">Seleccionar</a>
+                                    <a href="{{route('addBankOrder')}}" class="primary-btn add-to-cart col-md-12">Seleccionar</a>
                                 </div>
                             </div>
                         </div>
