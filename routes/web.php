@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -48,6 +49,10 @@ Route::post('/login', [Controllers\Auth\LoginController::class, 'login'])->name(
 Route::post('/logout', [Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [Controllers\Auth\RegisterController::class, 'register']);
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 
 Route::middleware(['auth'])->group(
     static function (Router $router) {
