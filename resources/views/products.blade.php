@@ -39,7 +39,7 @@
                                                     class="fa fa-search-plus"></i> Ver producto
                                             </a>
                                             <img
-                                                src="{{$product->images ? asset('storage/products'.json_decode($product->images, true)[0]) : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                                                src="{{$product->images ? asset('storage/products/'.json_decode($product->images, true)[0]) : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                                 alt="">
                                         </div>
                                         <div class="product-body">
