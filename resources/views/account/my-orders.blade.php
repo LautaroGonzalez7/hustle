@@ -42,7 +42,7 @@
                                         <div class="col-md-1">
                                             @if(isset($order->product->images))
                                                 <img
-                                                    src="/storage/products/{{json_decode($order->product->images, true)[0]}}"
+                                                    src="/images/products/{{json_decode($order->product->images, true)[0]}}"
                                                     width="100%">
                                             @else
                                                 <img
@@ -67,7 +67,7 @@
                                                     <b>Comprobantes:</b>
                                             <div class="order-invoices-container">
                                                 @foreach(json_decode($order->images, true) as $image)
-                                                    <a href="/storage/orders/{{$image}}" target="_blank">
+                                                    <a href="/images/orders/{{$image}}" target="_blank">
                                                         @if(preg_split("/\./", $image)[1] === 'pdf')
                                                             <div>
                                                                 <img

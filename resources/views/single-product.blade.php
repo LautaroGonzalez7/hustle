@@ -26,24 +26,24 @@
                         <div id="product-main-view">
                             <div class="product-view">
                                 <img
-                                    src="{{$product->images ? '/storage/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                     alt="">
                             </div>
                             <div class="product-view">
                                 <img
-                                    src="{{$product->images ? '/storage/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                     alt="">
                             </div>
                         </div>
                         <div id="product-view">
                             <div class="product-view">
                                 <img
-                                    src="{{$product->images ? '/storage/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                     alt="">
                             </div>
                             <div class="product-view">
                                 <img
-                                    src="{{$product->images ? '/storage/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                     alt="">
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                                                         <h5 class="complement-title">{{$complement->name}}</h5>
                                                         <div class="complement-content">
                                                             <img class="banner-img-fit-complements"
-                                                                 src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
+                                                                 src="{{$complement->images ? '/images/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
                                                                  alt="">
                                                             <div class="complement-button text-center">
                                                                 <button class="primary-btn"

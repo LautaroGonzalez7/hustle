@@ -223,7 +223,9 @@ class OrderController extends Controller
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
             // Upload Image
             $hashedName = sha1(md5(random_bytes(16))) . '.' . $extension;
-            $path = $file->storeAs('/public/orders', $hashedName);
+//            $path = $file->storeAs('/public/orders', $hashedName);
+            $destination = 'images/orders/';
+            $file->move($destination, $hashedName);
             $imageNames[] = $hashedName;
         };
 
