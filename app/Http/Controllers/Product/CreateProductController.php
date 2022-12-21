@@ -21,6 +21,7 @@ class CreateProductController extends Controller
             Arr::get($payload, "price"),
             Arr::get($payload, "old_price"),
             Arr::get($payload, "content"),
+            Arr::get($payload, "highlight"),
             Arr::get($payload, "category_id"),
         );
 

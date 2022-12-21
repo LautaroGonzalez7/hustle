@@ -62,6 +62,11 @@ class Product extends Model
         $this->content = $content;
     }
 
+    public function setHighlight(string $highlight): void
+    {
+        $this->highlight = $highlight;
+    }
+
     public function setCategoryId(int $categoryId): void
     {
         $this->category_id = $categoryId;
@@ -87,6 +92,7 @@ class Product extends Model
         float $price,
         float $oldPrice,
         string $content,
+        bool $highlight,
         int $categoryId
     ): Product {
         $product = new Product();
@@ -95,6 +101,7 @@ class Product extends Model
         $product->price       = $price;
         $product->old_price   = $oldPrice;
         $product->content     = $content;
+        $product->highlight     = $highlight;
         $product->category_id = $categoryId;
         $product->setCreatedAt(new \DateTimeImmutable());
         $product->setUpdatedAt(new \DateTimeImmutable());

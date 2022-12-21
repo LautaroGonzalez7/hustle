@@ -22,6 +22,7 @@ class UpdateProductController extends Controller
         $product->setPrice(Arr::get($payload, "price"));
         $product->setOldPrice(Arr::get($payload, "old_price"));
         $product->setContent(Arr::get($payload, "content"));
+        $product->setHighlight(Arr::get($payload, "highlight"));
         $product->setCategoryId(Arr::get($payload, "category_id"));
 
         $product->save();

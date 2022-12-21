@@ -4640,6 +4640,7 @@ var default_1 = function (_super) {
       price: '',
       old_price: '',
       content: '',
+      highlight: false,
       category_id: ''
     };
     _this.images = [];
@@ -4694,6 +4695,7 @@ var default_1 = function (_super) {
               price: '',
               old_price: '',
               content: '',
+              highlight: false,
               category_id: ''
             };
             return [4
@@ -13501,7 +13503,7 @@ var staticRenderFns = [
         _vm._v("Comprobantes:")
       ]),
       _vm._v(" "),
-      _c("span", [_vm._v("comprobante1")])
+      _c("span", [_vm._v("En desarrollo")])
     ])
   }
 ]
@@ -13729,6 +13731,60 @@ var render = function() {
                               "content",
                               $event.target.value
                             )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12 col-lg-12" }, [
+                    _c("div", { staticClass: "form-group d-flex" }, [
+                      _c("label", { attrs: { for: "highlight" } }, [
+                        _vm._v("Destacado")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.highlight,
+                            expression: "product.highlight"
+                          }
+                        ],
+                        staticClass: "ml-3",
+                        attrs: { type: "checkbox", id: "highlight" },
+                        domProps: {
+                          checked: Array.isArray(_vm.product.highlight)
+                            ? _vm._i(_vm.product.highlight, null) > -1
+                            : _vm.product.highlight
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.product.highlight,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.product,
+                                    "highlight",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.product,
+                                    "highlight",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.product, "highlight", $$c)
+                            }
                           }
                         }
                       })
@@ -13974,6 +14030,60 @@ var render = function() {
                               "old_price",
                               $event.target.value
                             )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-12 col-lg-12" }, [
+                    _c("div", { staticClass: "form-group d-flex" }, [
+                      _c("label", { attrs: { for: "highlight" } }, [
+                        _vm._v("Destacado")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.product.highlight,
+                            expression: "product.highlight"
+                          }
+                        ],
+                        staticClass: "ml-3",
+                        attrs: { type: "checkbox", id: "highlight" },
+                        domProps: {
+                          checked: Array.isArray(_vm.product.highlight)
+                            ? _vm._i(_vm.product.highlight, null) > -1
+                            : _vm.product.highlight
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.product.highlight,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.product,
+                                    "highlight",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.product,
+                                    "highlight",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.product, "highlight", $$c)
+                            }
                           }
                         }
                       })

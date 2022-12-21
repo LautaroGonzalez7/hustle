@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->json('images')->nullable()->default(null);
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('order')->default(0);
+            $table->boolean('highlight')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

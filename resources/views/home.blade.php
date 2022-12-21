@@ -11,7 +11,7 @@
                 @foreach($sliders as $slider)
                     <!-- banner -->
                         <div class="banner banner-1">
-                            <img class="banner-img-fit" src="{{$slider->images ? '/storage/sliders/'.json_decode($slider->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                            <img class="banner-img-fit" src="{{$slider->images ? '/images/sliders/'.json_decode($slider->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                  alt="">
                             <div class="banner-caption text-center">
                                 <h1>{{$slider->title}}</h1>
@@ -81,116 +81,29 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <div id="product-slick-1" class="product-slick">
+                        @foreach ($products as $product)
                             <!-- Product Single -->
                             <div class="product product-single">
                                 <div class="product-thumb">
                                     <div class="product-label">
-                                        <span>Nuevo</span>
-                                        <span class="sale">-20%</span>
+                                        <span class="sale">{{round(($product->price - $product->old_price) * 100 / $product->price)}}%</span>
                                     </div>
-                                    <a href="{{url('/single-product')}}" class="main-btn quick-view"><i
+                                    <a href="{{url('/single-product/'.$product->id)}}" class="main-btn quick-view"><i
                                             class="fa fa-search-plus"></i> Ver producto
                                     </a>
                                     <img
-                                        src="https://www.magnoliascusco.com/wp-content/uploads/2019/02/Deseo-cumplido-B06-370x370.jpg"
+                                        src="{{$product->images ? asset('images/products/'.json_decode($product->images, true)[0]) : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
                                         alt="">
                                 </div>
                                 <div class="product-body">
-                                    <h3 class="product-price">S/85.00
-                                        <del class="product-old-price">S/100.00</del>
+                                    <h3 class="product-price">S/{{$product->price}}
+                                        <del class="product-old-price">S/{{$product->old_price}}</del>
                                     </h3>
-                                    <h2 class="product-name"><a href="#">Deseo cumplido</a></h2>
-                                    <div class="product-btns">
-                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>
-                                            Agregar al carrito
-                                        </button>
-                                    </div>
+                                    <h2 class="product-name"><a href="#">{{$product->name}}</a></h2>
                                 </div>
                             </div>
                             <!-- /Product Single -->
-
-                            <!-- Product Single -->
-                            <div class="product product-single">
-                                <div class="product-thumb">
-                                    <div class="product-label">
-                                        <span class="sale">-20%</span>
-                                    </div>
-                                    <a href="{{url('/single-product')}}" class="main-btn quick-view"><i
-                                            class="fa fa-search-plus"></i> Ver producto
-                                    </a>
-                                    <img
-                                        src="https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg"
-                                        alt="">
-                                </div>
-                                <div class="product-body">
-                                    <h3 class="product-price">S/100.00
-                                        <del class="product-old-price">S/115.00</del>
-                                    </h3>
-                                    <h2 class="product-name"><a href="#">Siempre juntos</a></h2>
-                                    <div class="product-btns">
-                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>
-                                            Agregar al carrito
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Product Single -->
-
-                            <!-- Product Single -->
-                            <div class="product product-single">
-                                <div class="product-thumb">
-                                    <div class="product-label">
-                                        <span>Nuevo</span>
-                                        <span class="sale">-20%</span>
-                                    </div>
-                                    <a href="{{url('/single-product')}}" class="main-btn quick-view"><i
-                                            class="fa fa-search-plus"></i> Ver producto
-                                    </a>
-                                    <img
-                                        src="https://www.magnoliascusco.com/wp-content/uploads/2018/05/oso-flores-bouquet-1-370x370.jpg"
-                                        alt="">
-                                </div>
-                                <div class="product-body">
-                                    <h3 class="product-price">S/200.00
-                                        <del class="product-old-price">S/250.00</del>
-                                    </h3>
-                                    <h2 class="product-name"><a href="#">Oso de peluche y ramo de rosas</a></h2>
-                                    <div class="product-btns">
-                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>
-                                            Agregar al carrito
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Product Single -->
-
-                            <!-- Product Single -->
-                            <div class="product product-single">
-                                <div class="product-thumb">
-                                    <div class="product-label">
-                                        <span>Nuevo</span>
-                                        <span class="sale">-20%</span>
-                                    </div>
-                                    <a href="{{url('/single-product')}}" class="main-btn quick-view"><i
-                                            class="fa fa-search-plus"></i> Ver producto
-                                    </a>
-                                    <img
-                                        src="https://www.magnoliascusco.com/wp-content/uploads/2018/04/eterno-detalle-cap1-370x370.jpg"
-                                        alt="">
-                                </div>
-                                <div class="product-body">
-                                    <h3 class="product-price">S/85.00
-                                        <del class="product-old-price">S/100.00</del>
-                                    </h3>
-                                    <h2 class="product-name"><a href="#">Eterno detalle</a></h2>
-                                    <div class="product-btns">
-                                        <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>
-                                            Agregar al carrito
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Product Single -->
+                            @endforeach
                         </div>
                     </div>
                 </div>

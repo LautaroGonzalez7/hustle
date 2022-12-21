@@ -39,6 +39,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-12">
+                                    <div class="form-group d-flex">
+                                        <label for="highlight">Destacado</label>
+                                        <input type="checkbox" class="ml-3" id="highlight"
+                                               v-model="product.highlight">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
                                     <div class="form-group">
                                         <label for="content">Contenido</label>
                                         <textarea class="form-control" id="content"

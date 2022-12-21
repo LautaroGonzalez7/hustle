@@ -45,6 +45,13 @@
                                                   v-model="product.content"></textarea>
                                     </div>
                                 </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="form-group d-flex">
+                                        <label for="highlight">Destacado</label>
+                                        <input type="checkbox" class="ml-3" id="highlight"
+                                               v-model="product.highlight">
+                                    </div>
+                                </div>
                                 <div class="col-md-3 col-lg-3">
                                     <div class="form-group">
                                         <label for="images">Imágenes</label>
@@ -84,6 +91,7 @@ export default class extends Vue {
         price: '',
         old_price: '',
         content: '',
+        highlight: false,
         category_id: ''
     };
     protected images: any = [];
@@ -108,6 +116,7 @@ export default class extends Vue {
                 price: '',
                 old_price: '',
                 content: '',
+                highlight: false,
                 category_id: ''
             };
 
