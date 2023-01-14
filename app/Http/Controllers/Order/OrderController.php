@@ -125,6 +125,62 @@ class OrderController extends Controller
         return view('payments.yape', ["totalPrice" => $totalPrice]);
     }
 
+    public function addPaypalOrder(Request $request)
+    {
+        $productId = $request->session()->get('buy.productId');
+        $product = Product::where('id', $productId)->first();
+
+        $formattedProduct = [
+            'id' => $product->id,
+            'name' => $product->name,
+            'price' => $product->price,
+            'content' => $product->content,
+        ];
+
+        $payment = [
+            'type' => 5
+        ];
+
+        $shipment = $request->session()->get('buy.shipment');
+
+        $complements = $request->session()->get('buy.complements');
+
+        $complementsFromDB = Complement::whereIn('id', $complements)->get()->all();
+
+        $formattedComplements = [];
+        foreach ($complementsFromDB as $complementFromDB){
+            $formattedComplements[] = [
+                'id' => $complementFromDB->id,
+                'name' => $complementFromDB->name,
+                'price' => $complementFromDB->price,
+                'content' => $complementFromDB->content,
+            ];
+        }
+
+        $productPrice = $product->price;
+        $complementsPrice = 0;
+        foreach ($complementsFromDB as $c) {
+            $complementsPrice += $c->price;
+        }
+        $totalPrice = $productPrice + $complementsPrice;
+
+        $userId = 1;
+
+        $order = Order::create(
+            $formattedProduct,
+            $payment,
+            $shipment,
+            $formattedComplements,
+            OrderStates::PENDING,
+            $userId,
+            $formattedProduct["id"],
+            $totalPrice
+        );
+        $order->save();
+
+        return view('payments.paypal', ["totalPrice" => $totalPrice]);
+    }
+
     public function addStripeOrder(Request $request)
     {
         $productId = $request->session()->get('buy.productId');

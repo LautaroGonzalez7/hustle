@@ -38,6 +38,7 @@ Route::post('/order/{id}', [Controllers\Order\OrderController::class, 'uploadInv
 Route::get('/order-bank', [Controllers\Order\OrderController::class, 'addOrder'])->name('addBankOrder');
 Route::get('/order-yape', [Controllers\Order\OrderController::class, 'addYapeOrder'])->name('addYapeOrder');
 Route::get('/order-stripe', [Controllers\Order\OrderController::class, 'addStripeOrder'])->name('addStripeOrder');
+Route::get('/order-paypal', [Controllers\Order\OrderController::class, 'addPaypalOrder'])->name('addPaypalOrder');
 
 //Stripe
 Route::get('/stripe', [Controllers\Stripe\StripeController::class, 'checkout'])->name('stripe.get');

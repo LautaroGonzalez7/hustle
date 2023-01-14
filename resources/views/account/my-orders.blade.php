@@ -15,7 +15,7 @@
     <!-- /BREADCRUMB -->
 
     <!-- section -->
-    <div class="section bg-gray">
+    <div class="section">
         <!-- container -->
         <div class="container">
 

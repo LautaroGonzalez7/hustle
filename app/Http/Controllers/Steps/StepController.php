@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Steps;
 
 use App\Http\Controllers\Controller;
+use App\Models\Complement;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class StepController extends Controller
@@ -22,9 +24,22 @@ class StepController extends Controller
         return view('steps.step-two', ["shipment" => $shipment]);
     }
 
-    public function stepThree()
+    public function stepThree(Request $request)
     {
-        return view('steps.step-three');
+        $productId = $request->session()->get('buy.productId');
+        $product = Product::where('id', $productId)->first();
+
+        $complements = $request->session()->get('buy.complements');
+        $complementsFromDB = Complement::whereIn('id', $complements)->get()->all();
+
+        $productPrice = $product->price;
+        $complementsPrice = 0;
+        foreach ($complementsFromDB as $c) {
+            $complementsPrice += $c->price;
+        }
+        $totalPrice = $productPrice + $complementsPrice;
+
+        return view('steps.step-three', ["totalPrice" => $totalPrice]);
     }
 
 }
