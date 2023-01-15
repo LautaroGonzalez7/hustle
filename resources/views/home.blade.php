@@ -11,7 +11,7 @@
                 @foreach($sliders as $slider)
                     <!-- banner -->
                         <div class="banner banner-1">
-                            <img class="banner-img-fit" src="{{$slider->images ? '/images/sliders/'.json_decode($slider->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
+                            <img class="banner-img-fit" src="{{$slider->images ? '/images/sliders/'.json_decode($slider->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2021/06/web-envia-1.jpg'}}"
                                  alt="">
                             <div class="banner-caption text-center">
                                 <h1>{{$slider->title}}</h1>
