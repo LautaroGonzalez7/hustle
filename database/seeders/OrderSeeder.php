@@ -37,12 +37,13 @@ class OrderSeeder extends Seeder
 
         for ($i = 0; $i <= 3; $i++) {
             Order::factory()->create([
-                'product' => json_encode($products[$i]),
+                'product_id' => json_encode($products[$i]["id"]),
                 'payment' => json_encode($payments[$i]),
                 'shipment' => json_encode($shipments[$i]),
                 'state' => $states[$i],
                 "user_id" => $userIds,
                 'complements' => json_encode($complements[$i]),
+                'total' => json_encode($products[$i]["price"]),
             ]);
         }
     }
