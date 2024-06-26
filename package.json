@@ -38,6 +38,7 @@
         "vue-cookies": "^1.7.0",
         "vue-loader": "^15.9.8",
         "vue-material-design-icons": "^5.1.1",
+        "vue-property-decorator": "^9.1.2",
         "vue-router": "3.0.1",
         "vue-template-compiler": "^2.6.14",
         "webpack": "^5.57.1"

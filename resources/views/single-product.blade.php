@@ -24,28 +24,32 @@
                 <div class="product product-details clearfix">
                     <div class="col-md-6">
                         <div id="product-main-view">
-                            <div class="product-view">
-                                <img
-                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
-                                    alt="">
-                            </div>
-                            <div class="product-view">
-                                <img
-                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
-                                    alt="">
-                            </div>
+                            @if(!$product->images)
+                                <div class="product-view">
+                                    <img
+                                        src="https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg"
+                                        alt="">
+                                </div>
+                            @endif
+                            @foreach (json_decode($product->images, true) as $image)
+                                <div class="product-view">
+                                    <img src="{{'/images/products/'.$image}}" alt="">
+                                </div>
+                            @endforeach
                         </div>
                         <div id="product-view">
-                            <div class="product-view">
-                                <img
-                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
-                                    alt="">
-                            </div>
-                            <div class="product-view">
-                                <img
-                                    src="{{$product->images ? '/images/products/'.json_decode($product->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg'}}"
-                                    alt="">
-                            </div>
+                            @if(!$product->images)
+                                <div class="product-view">
+                                    <img
+                                        src="https://www.magnoliascusco.com/wp-content/uploads/2019/02/arreglo-siempre-juntos-b2-370x370.jpg"
+                                        alt="">
+                                </div>
+                            @endif
+                            @foreach (json_decode($product->images, true) as $image)
+                                <div class="product-view">
+                                    <img src="{{'/images/products/'.$image}}" alt="">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -174,8 +178,8 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="complements-slick" id="complements-slick">
-                                    @foreach ($complements as $complement)
-                                        <!-- banner -->
+                                        @foreach ($complements as $complement)
+                                            <!-- banner -->
                                             <div class="banner banner-1">
                                                 <div style="padding: 5px">
                                                     <div class="complement-card">
@@ -281,14 +285,24 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">SELECCIONAR HORARIO</h4>
+                    <h4 class="modal-title" id="myModalLabel">SELECCIONAR FECHA</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row" style="padding:15px">
                         <div class="col-md-12">
                             <div class="date-picker-2"></div>
                         </div>
-                        <div class="col-md-4" style="padding-top: 7px" id="hour-buttons"></div>
+                        <div class="col-md-12">
+                            <h4 class="primary-color mt-3">Horarios</h4>
+                            <div class="col-md-5" id="hour-buttons"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="primary-color mt-3 mb-0">Horarios especiales</h4>
+                            <div>
+                                <span>(Tiene un costo adicional de + S/15)</span>
+                            </div>
+                            <div class="col-md-5" id="hour-buttons-special"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -335,7 +349,7 @@
                                                                 <h5 class="complement-title">{{$complement->name}}</h5>
                                                                 <div class="complement-content">
                                                                     <img class="banner-img-fit-complements"
-                                                                         src="{{$complement->images ? '/storage/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
+                                                                         src="{{$complement->images ? '/images/complements/'.json_decode($complement->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2018/04/ferrero-rocher-corazon-8-150x150.jpg'}}"
                                                                          alt="">
                                                                     <div class="complement-button text-center">
                                                                         <button class="primary-btn"
@@ -396,6 +410,26 @@
             $('.complements-slick').slick({
                 slidesToShow: 3
             });
+
+            $('#product-view').slick({
+                slidesToShow: 3,
+                arrows: false,
+                asNavFor: '#product-main-view',
+            });
+
+            function fixSlickStyle(event, slick) {
+                if (slick.slideCount <= slick.options.slidesToShow) {
+                    slick.$slideTrack.css('transform','');
+                }
+            }
+
+            $('#product-view')
+                .on('setPosition', function(event, slick) {
+                    fixSlickStyle(event, slick);
+                })
+                .on('afterChange', function(event, slick, currentSlide){
+                    fixSlickStyle(event, slick);
+                })
         });
 
 
@@ -407,6 +441,11 @@
                 html += `<button  class="calendar-buttons" onclick="option('10:00-12:00', '${fullDate}')">10:00 am – 12:00 pm</button>`;
                 html += `<button  class="calendar-buttons" onclick="option('12:00-14:00', '${fullDate}')">12:00 am – 2:00 pm</button>`;
                 $('#hour-buttons').html(html);
+
+                let htmlSpecial = `<button  class="calendar-buttons" onclick="option('19:00-21:00', '${fullDate}')">19:00 pm – 21:00 pm</button>`;
+                htmlSpecial += `<button  class="calendar-buttons" onclick="option('22:00-00:00', '${fullDate}')">22:00 pm – 00:00 am</button>`;
+                htmlSpecial += `<button  class="calendar-buttons" onclick="option('06:00-08:00', '${fullDate}')">06:00 am – 08:00 pm</button>`;
+                $('#hour-buttons-special').html(htmlSpecial);
             }
         });
 

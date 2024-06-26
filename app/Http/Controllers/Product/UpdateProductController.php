@@ -19,6 +19,7 @@ class UpdateProductController extends Controller
         $payload = $request->getParsedBody();
 
         $product->setName(Arr::get($payload, "name"));
+        $product->setCode(Arr::get($payload, "code"));
         $product->setPrice(Arr::get($payload, "price"));
         $product->setOldPrice(Arr::get($payload, "old_price"));
         $product->setContent(Arr::get($payload, "content"));

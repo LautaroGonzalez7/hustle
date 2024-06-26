@@ -25,9 +25,10 @@ class ProductFactory extends Factory
             'name' => $this->faker->name,
             'price' => $this->faker->randomFloat(2,10,150),
             'old_price' => $this->faker->randomFloat(2,10,150),
+            'position' => $this->faker->randomDigit(),
+            'code' => $this->faker->text(10),
             'content' => $this->faker->text(50),
             'images' => json_encode([$this->faker->text(10)]),
-            'category_id' => 1,
         ];
     }
 }

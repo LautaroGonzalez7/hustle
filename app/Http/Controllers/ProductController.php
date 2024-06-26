@@ -6,12 +6,22 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Complement;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 class ProductController extends Controller
 {
-    public function products()
+    public function products(Request $request)
     {
-        $products = Product::orderBy('order', 'ASC')->paginate(12);
+        $filterSearch = $request->filterSearch;
+
+        if($filterSearch){
+            $products = Product::where('name', '=', $filterSearch)->orderBy('position', 'ASC')->paginate(12);
+        }
+
+        if(isEmpty($filterSearch)){
+            $products = Product::orderBy('position', 'ASC')->paginate(12);
+        }
 
         return view('products', ['products' => $products]);
     }
@@ -22,7 +32,7 @@ class ProductController extends Controller
 
         $complements = Complement::all();
 
-        $complementCategories = Category::where('scope', 'complements')->with('complement')->get();
+        $complementCategories = Category::with('complement')->get();
 
         return view('single-product', [
             'product' => $product,

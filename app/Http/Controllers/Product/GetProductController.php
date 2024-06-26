@@ -16,7 +16,7 @@ class GetProductController extends Controller
     public function __invoke(ServerRequestInterface $request, int $id): JsonResponse
     {
 
-        $product = Product::with('category')->where('id', '=', $id)->get()->first();
+        $product = Product::with('categories')->where('id', '=', $id)->get()->first();
 
         return response()->json(["data" => $product], 200);
 

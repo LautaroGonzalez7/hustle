@@ -22,7 +22,7 @@ class Category extends Model
         return $this->name;
     }
 
-    public function getScope(): string
+    public function getScope(): int
     {
         return $this->scope;
     }
@@ -37,7 +37,7 @@ class Category extends Model
         $this->scope = $scope;
     }
 
-    public static function create(string $name, string $scope): Category
+    public static function create(string $name, int $scope): Category
     {
         $category = new Category();
 
@@ -49,9 +49,9 @@ class Category extends Model
         return $category;
     }
 
-    public function product()
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->hasMany('App\Models\Product');
+        return $this->belongsToMany('App\Models\Product', 'categories_products');
     }
 
     public function complement()

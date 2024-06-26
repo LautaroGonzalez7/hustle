@@ -15,6 +15,7 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $names = ['Balde con 12 rosas', 'Puro amor', 'Cupido', 'Eterno amor'];
+        $codes = ['A01', 'A02', 'A03', 'A04'];
         $prices = [20.90, 50, 150, 76.90];
         $oldPrices = [30.90, 70, 180, 80];
         $content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -30,10 +31,10 @@ class ProductSeeder extends Seeder
                 'name' => $names[$i],
                 'price' => $prices[$i],
                 'old_price' => $oldPrices[$i],
+                'code' => $codes[$i],
                 'content' => $content,
                 "images" => json_encode($images[0]),
-                'category_id' => 1,
-                'order' => $i,
+                'position' => $i,
             ]);
         }
     }

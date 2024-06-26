@@ -15,7 +15,7 @@
             <tr v-for="(product, index) in products">
                 <td>{{index+1}}</td>
                 <td>{{ product.name }}</td>
-                <td>{{ product.category.name }}</td>
+                <td>{{ getParsesCategories(product) }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.old_price }}</td>
                 <td>
@@ -49,6 +49,11 @@ export default class extends Vue {
     private async getProducts() {
         const productResponse = await this.productClient.getAll();
         this.products = productResponse.data;
+    }
+
+    private getParsesCategories(product: { categories: { name: string; }[]; }) {
+        const categoryNames = product.categories.map((category: { name: string; }) => category.name);
+        return categoryNames.join(', ')
     }
 
 }

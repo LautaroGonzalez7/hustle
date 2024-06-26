@@ -16,7 +16,7 @@ class IndexProductController extends Controller
     public function __invoke(ServerRequestInterface $request): JsonResponse
     {
 
-        $products = Product::orderBy('order', 'ASC')->with('category')->get()->all();
+        $products = Product::with('categories')->orderBy('position', 'ASC')->get()->all();
 
         return response()->json(["data" => $products], 200);
 

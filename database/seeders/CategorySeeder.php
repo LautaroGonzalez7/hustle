@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
         for ($i = 0; $i <= 6; $i++){
             Category::factory()->create([
                 "name" => $names[$i],
-                "scope" => $i <= 3 ? 'products' : 'complements'
+                "scope" => 1
             ]);
         }
     }

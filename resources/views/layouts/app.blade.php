@@ -140,35 +140,52 @@
                 <div class="menu-nav">
                     <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
                     <ul class="menu-list">
-                        <li><a href="{{url('/')}}">Inicio</a></li>
-                        <li><a href="{{route('products')}}">Tienda</a></li>
+                        <li><a href="#"><span class="nav-featured">Promociones</span></a></li>
                         <li class="dropdown mega-dropdown mega-main">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                               aria-expanded="true">Por Ocasión <i class="fa fa-caret-down"></i>
+                               aria-expanded="true">Ocasiones <i class="fa fa-caret-down"></i>
                             </a>
                             <div class="custom-menu">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <ul class="list-links">
-                                            <li><a href="#">Cumpleaños</a></li>
-                                            <li><a href="#">Amor y aniversarios</a></li>
-                                            <li><a href="#">Nacimientos</a></li>
+                                            @if(isset($allCategories["ocasiones"][0]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][0]->name}}</a></li>
+                                            @endif
+                                                @if(isset($allCategories["ocasiones"][1]))
+                                                    <li><a href="#">{{$allCategories["ocasiones"][1]->name}}</a></li>
+                                                @endif
+                                            @if(isset($allCategories["ocasiones"][2]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][2]->name}}</a></li>
+                                            @endif
                                         </ul>
                                         <hr class="hidden-md hidden-lg">
                                     </div>
                                     <div class="col-md-4">
                                         <ul class="list-links">
-                                            <li><a href="#">San Valentín</a></li>
-                                            <li><a href="#">Día del padre</a></li>
-                                            <li><a href="#">Día de la madre</a></li>
+                                            @if(isset($allCategories["ocasiones"][3]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][3]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["ocasiones"][4]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][4]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["ocasiones"][5]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][5]->name}}</a></li>
+                                            @endif
                                         </ul>
                                         <hr class="hidden-md hidden-lg">
                                     </div>
                                     <div class="col-md-4">
                                         <ul class="list-links">
-                                            <li><a href="#">Mejorate</a></li>
-                                            <li><a href="#">Gracias</a></li>
-                                            <li><a href="#">Mejores deseos</a></li>
+                                            @if(isset($allCategories["ocasiones"][6]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][6]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["ocasiones"][7]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][7]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["ocasiones"][8]))
+                                                <li><a href="#">{{$allCategories["ocasiones"][8]->name}}</a></li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
@@ -190,30 +207,49 @@
                         </li>
                         <li class="dropdown mega-dropdown mega-main">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                               aria-expanded="true">Por tipo <i class="fa fa-caret-down"></i>
+                               aria-expanded="true">Tipos <i class="fa fa-caret-down"></i>
                             </a>
                             <div class="custom-menu">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <ul class="list-links">
-                                            <li><a href="#">Ramos</a></li>
-                                            <li><a href="#">Combinados</a></li>
-                                            <li><a href="#">Gerberas</a></li>
+                                            @if(isset($allCategories["tipos"][0]))
+                                                <li><a href="#">{{$allCategories["tipos"][0]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["tipos"][1]))
+                                                <li><a href="#">{{$allCategories["tipos"][1]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["tipos"][2]))
+                                                <li><a href="#">{{$allCategories["tipos"][2]->name}}</a></li>
+                                            @endif
                                         </ul>
                                         <hr class="hidden-md hidden-lg">
                                     </div>
                                     <div class="col-md-4">
                                         <ul class="list-links">
-                                            <li><a href="#">Girasoles</a></li>
-                                            <li><a href="#">Lilys / Stargazer</a></li>
-                                            <li><a href="#">Orquídeas</a></li>
+                                            @if(isset($allCategories["tipos"][3]))
+                                                <li><a href="#">{{$allCategories["tipos"][3]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["tipos"][4]))
+                                                <li><a href="#">{{$allCategories["tipos"][4]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["tipos"][5]))
+                                                <li><a href="#">{{$allCategories["tipos"][5]->name}}</a></li>
+                                            @endif
                                         </ul>
                                         <hr class="hidden-md hidden-lg">
                                     </div>
                                     <div class="col-md-4">
                                         <ul class="list-links">
-                                            <li><a href="#">Plantas</a></li>
-                                            <li><a href="#">Rosas</a></li>
+                                            @if(isset($allCategories["tipos"][6]))
+                                                <li><a href="#">{{$allCategories["tipos"][6]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["tipos"][7]))
+                                                <li><a href="#">{{$allCategories["tipos"][7]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["tipos"][8]))
+                                                <li><a href="#">{{$allCategories["tipos"][8]->name}}</a></li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
@@ -233,9 +269,136 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="#">Contacto</a></li>
+                        <li class="dropdown mega-dropdown mega-main">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="true">Regalos <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="custom-menu">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-links">
+                                            @if(isset($allCategories["regalos"][0]))
+                                                <li><a href="#">{{$allCategories["regalos"][0]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["regalos"][1]))
+                                                <li><a href="#">{{$allCategories["regalos"][1]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["regalos"][2]))
+                                                <li><a href="#">{{$allCategories["regalos"][2]->name}}</a></li>
+                                            @endif
+                                        </ul>
+                                        <hr class="hidden-md hidden-lg">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-links">
+                                            @if(isset($allCategories["regalos"][3]))
+                                                <li><a href="#">{{$allCategories["regalos"][3]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["regalos"][4]))
+                                                <li><a href="#">{{$allCategories["regalos"][4]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["regalos"][5]))
+                                                <li><a href="#">{{$allCategories["regalos"][5]->name}}</a></li>
+                                            @endif
+                                        </ul>
+                                        <hr class="hidden-md hidden-lg">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-links">
+                                            @if(isset($allCategories["regalos"][6]))
+                                                <li><a href="#">{{$allCategories["regalos"][6]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["regalos"][7]))
+                                                <li><a href="#">{{$allCategories["regalos"][7]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["regalos"][8]))
+                                                <li><a href="#">{{$allCategories["regalos"][8]->name}}</a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row hidden-sm hidden-xs">
+                                    <div class="col-md-12">
+                                        <hr>
+                                        <a class="banner banner-1" href="#">
+                                            <img class="nav-img-fit"
+                                                 src="https://images.food52.com/G1SGDj8VuusTxHrzWG8EjkvTiJQ=/1200x900/b7db9ece-1db1-496f-821e-211c1c39aa91--2019-0410_farmgirl-flowers_single-stem-flowers_family_silo_ty-mecham_018.jpg"
+                                                 alt="">
+                                            <div class="banner-caption text-center">
+                                                <h2 class="white-color">EL TIPO EXACTO</h2>
+                                                <h3 class="white-color font-weak">PARA CADA MOMENTO</h3>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown mega-dropdown mega-main">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="true">Postres <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="custom-menu">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-links">
+                                            @if(isset($allCategories["postres"][0]))
+                                                <li><a href="#">{{$allCategories["postres"][0]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["postres"][1]))
+                                                <li><a href="#">{{$allCategories["postres"][1]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["postres"][2]))
+                                                <li><a href="#">{{$allCategories["postres"][2]->name}}</a></li>
+                                            @endif
+                                        </ul>
+                                        <hr class="hidden-md hidden-lg">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-links">
+                                            @if(isset($allCategories["postres"][3]))
+                                                <li><a href="#">{{$allCategories["postres"][3]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["postres"][4]))
+                                                <li><a href="#">{{$allCategories["postres"][4]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["postres"][5]))
+                                                <li><a href="#">{{$allCategories["postres"][5]->name}}</a></li>
+                                            @endif
+                                        </ul>
+                                        <hr class="hidden-md hidden-lg">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-links">
+                                            @if(isset($allCategories["postres"][6]))
+                                                <li><a href="#">{{$allCategories["postres"][6]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["postres"][7]))
+                                                <li><a href="#">{{$allCategories["postres"][7]->name}}</a></li>
+                                            @endif
+                                            @if(isset($allCategories["postres"][8]))
+                                                <li><a href="#">{{$allCategories["postres"][8]->name}}</a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row hidden-sm hidden-xs">
+                                    <div class="col-md-12">
+                                        <hr>
+                                        <a class="banner banner-1" href="#">
+                                            <img class="nav-img-fit"
+                                                 src="https://images.food52.com/G1SGDj8VuusTxHrzWG8EjkvTiJQ=/1200x900/b7db9ece-1db1-496f-821e-211c1c39aa91--2019-0410_farmgirl-flowers_single-stem-flowers_family_silo_ty-mecham_018.jpg"
+                                                 alt="">
+                                            <div class="banner-caption text-center">
+                                                <h2 class="white-color">EL TIPO EXACTO</h2>
+                                                <h3 class="white-color font-weak">PARA CADA MOMENTO</h3>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="{{route('products')}}">Tienda</a></li>
                         <li><a href="#"><span class="nav-featured">Primavera</span></a></li>
-                        <li><a href="#"><span class="nav-featured">Promociones</span></a></li>
                     </ul>
                 </div>
                 <!-- menu nav -->

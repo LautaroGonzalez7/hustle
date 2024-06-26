@@ -131,14 +131,14 @@
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners/banner-1.png')center/cover">
+                         style="background: url('/assets/img/banners-ocasiones/banner1.jpg')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
                                 <span class="categories-text-span">Father's Day</span>
                             </p>
                             <button class="primary-btn categories-button">
-                                AMISTAD
+                                PLANTAS - ORQUIDEAS
                             </button>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                 <!-- banner -->
                 <div class="col-md-8 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners/banner-2.png')center/cover">
+                         style="background: url('/assets/img/banners-ocasiones/banner2.jpg')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -165,7 +165,41 @@
                 <!-- banner -->
                 <div class="col-md-8 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners/banner-3.png')center/cover">
+                         style="background: url('/assets/img/banners-ocasiones/banner3.jpg')center/cover">
+                        <div class="text-center">
+                            <p>
+                                <strong class="categories-text-strong">Gift Ideas for</strong>
+                                <span class="categories-text-span">Father's Day</span>
+                            </p>
+                            <button class="primary-btn categories-button">
+                                CUMPLEAÑOS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /banner -->
+
+                <!-- banner -->
+                <div class="col-md-4 col-sm-6 container-banner">
+                    <div class="banner banner-1 categories-img"
+                         style="background: url('/assets/img/banners-ocasiones/banner4.jpg')center/cover">
+                        <div class="text-center">
+                            <p>
+                                <strong class="categories-text-strong">Gift Ideas for</strong>
+                                <span class="categories-text-span">Father's Day</span>
+                            </p>
+                            <button class="primary-btn categories-button">
+                                FELICITACIONES
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /banner -->
+
+                <!-- banner -->
+                <div class="col-md-4 col-sm-6 container-banner">
+                    <div class="banner banner-1 categories-img"
+                         style="background: url('/assets/img/banners-ocasiones/banner5.jpg')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
@@ -180,50 +214,16 @@
                 <!-- /banner -->
 
                 <!-- banner -->
-                <div class="col-md-4 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners/banner-4.jpg')center/cover">
-                        <div class="text-center">
-                            <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
-                            </p>
-                            <button class="primary-btn categories-button">
-                                REGALOS
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
-                <div class="col-md-4 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners/banner-4.jpg')center/cover">
-                        <div class="text-center">
-                            <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
-                            </p>
-                            <button class="primary-btn categories-button">
-                                FESTIVIDAD
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
                 <div class="col-md-8 col-sm-6 container-banner">
                     <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners/banner-5.png')center/cover">
+                         style="background: url('/assets/img/banners-ocasiones/banner6.jpg')center/cover">
                         <div class="text-center">
                             <p>
                                 <strong class="categories-text-strong">Gift Ideas for</strong>
                                 <span class="categories-text-span">Father's Day</span>
                             </p>
                             <button class="primary-btn categories-button">
-                                EVENTOS
+                                REGALOS - TORTAS
                             </button>
                         </div>
                     </div>

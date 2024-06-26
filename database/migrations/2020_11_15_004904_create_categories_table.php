@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('scope');
+            $table->integer('scope');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -20,8 +20,157 @@
         <div class="container">
             <!-- row -->
             <div class="row">
+                <!-- NAVBAR -->
+                <div class="col-md-3">
+                    <form action="" method="get">
+                        <input name="filterSearch" type="text" class="form-control" placeholder="Buscar por nombre o codigo">
+                    </form>
+
+                    <div class="products-left-navbar">
+                        <h5>Rango de precio</h5>
+
+                        <div class="products-left-navbar-prices mt-3">
+                            <input type="number" class="form-control" placeholder="Desde">
+                            —
+                            <input type="number" class="form-control" placeholder="Hasta">
+                        </div>
+
+                        <div class="mt-3">
+                            <h5>Productos</h5>
+
+                            <div class="products-left-navbar-checkboxes">
+                                <div class="products-left-navbar-checkbox-item">
+                                    <input type="checkbox" id="c1">
+                                    <label for="c1">Flores</label>
+                                </div>
+                                <div class="products-left-navbar-checkbox-item">
+                                    <input type="checkbox" id="c1">
+                                    <label for="c1">Regalos</label>
+                                </div>
+                                <div class="products-left-navbar-checkbox-item">
+                                    <input type="checkbox" id="c1">
+                                    <label for="c1">Postres</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <h5>Categorias</h5>
+
+                            <div>
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="products-left-navbar-accordion">
+                                            <a class="products-left-navbar-accordion-a" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                <h4 class="panel-title">Ocasiones</h4>
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse">
+                                            <div class="panel-body products-left-navbar-accordion-content">
+                                                <div class="products-left-navbar-checkboxes">
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Flores</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Regalos</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Postres</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="products-left-navbar-accordion">
+                                            <a class="products-left-navbar-accordion-a" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                                <h4 class="panel-title">Tipos</h4>
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
+                                        <div id="collapse2" class="panel-collapse collapse">
+                                            <div class="panel-body products-left-navbar-accordion-content">
+                                                <div class="products-left-navbar-checkboxes">
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Flores</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Regalos</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Postres</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="products-left-navbar-accordion">
+                                            <a class="products-left-navbar-accordion-a" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                                <h4 class="panel-title">Regalos</h4>
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
+                                        <div id="collapse3" class="panel-collapse collapse">
+                                            <div class="panel-body products-left-navbar-accordion-content">
+                                                <div class="products-left-navbar-checkboxes">
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Flores</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Regalos</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Postres</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="products-left-navbar-accordion">
+                                            <a class="products-left-navbar-accordion-a" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                                <h4 class="panel-title">Postres</h4>
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
+                                        <div id="collapse4" class="panel-collapse collapse">
+                                            <div class="panel-body products-left-navbar-accordion-content">
+                                                <div class="products-left-navbar-checkboxes">
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Flores</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Regalos</label>
+                                                    </div>
+                                                    <div class="products-left-navbar-checkbox-item">
+                                                        <input type="checkbox" id="c1">
+                                                        <label for="c1">Postres</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- NAVBAR -->
                 <!-- MAIN -->
-                <div id="main" class="col-md-12">
+                <div id="main" class="col-md-9">
                     <!-- STORE -->
                     <div>
                         <!-- row -->

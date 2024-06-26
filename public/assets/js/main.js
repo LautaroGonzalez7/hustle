@@ -102,7 +102,6 @@
 
   // PRODUCT DETAILS SLICK
   $('#product-main-view').slick({
-    infinite: true,
     speed: 300,
     dots: false,
     arrows: true,
@@ -110,14 +109,6 @@
     asNavFor: '#product-view',
   });
 
-  $('#product-view').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    centerMode: true,
-    focusOnSelect: true,
-    asNavFor: '#product-main-view',
-  });
 
   // PRODUCT ZOOM
   $('#product-main-view .product-view').zoom();

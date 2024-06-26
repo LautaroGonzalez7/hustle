@@ -18,7 +18,9 @@
                                 <div class="col-md-6 col-lg-6">
                                     <div class="form-group">
                                         <label for="scope">Sección</label>
-                                        <input type="text" class="form-control" id="scope" v-model="category.scope">
+                                        <select v-model="category.scope" class="form-control" id="scope">
+                                            <option v-for="(scope, index) in scopes" :value="index">{{scope}}</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -41,6 +43,7 @@ import Vue from "vue"
 import Component from "vue-class-component";
 
 import CategoryApiClient from "../../services/api/requests/Category";
+import {Scopes} from "../../utils/constants/Scopes";
 
 @Component({
     components: {}
@@ -51,6 +54,8 @@ export default class extends Vue {
         name: '',
         scope: ''
     };
+
+    protected scopes: any = Scopes;
 
     protected successCreate: boolean = false;
     protected failedCreate: boolean = false;

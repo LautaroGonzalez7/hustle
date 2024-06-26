@@ -22,6 +22,11 @@ class Product extends Model
         return $this->name;
     }
 
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
     public function getPrice(): float
     {
         return $this->price;
@@ -37,6 +42,11 @@ class Product extends Model
         return $this->content;
     }
 
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
     public function getImages(): array
     {
         return json_decode($this->images, true);
@@ -45,6 +55,11 @@ class Product extends Model
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 
     public function setPrice(float $price): void
@@ -62,6 +77,11 @@ class Product extends Model
         $this->content = $content;
     }
 
+    public function setPosition(int $position): void
+    {
+        $this->position = $position;
+    }
+
     public function setHighlight(string $highlight): void
     {
         $this->highlight = $highlight;
@@ -77,41 +97,43 @@ class Product extends Model
         $this->images = json_encode($images);
     }
 
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(Category $category): void
-    {
-        $this->category()->associate($category);
-    }
+//    public function getCategory(): ?Category
+//    {
+//        return $this->category;
+//    }
+//
+//    public function setCategory(Category $category): void
+//    {
+//        $this->category()->associate($category);
+//    }
 
     public static function create(
         string $name,
-        float $price,
-        float $oldPrice,
+        string $code,
+        float  $price,
+        float  $oldPrice,
         string $content,
-        bool $highlight,
-        int $categoryId
-    ): Product {
+        bool   $highlight
+    ): Product
+    {
         $product = new Product();
 
-        $product->name        = $name;
-        $product->price       = $price;
-        $product->old_price   = $oldPrice;
-        $product->content     = $content;
-        $product->highlight     = $highlight;
-        $product->category_id = $categoryId;
+        $product->name = $name;
+        $product->code = $code;
+        $product->price = $price;
+        $product->old_price = $oldPrice;
+        $product->content = $content;
+        $product->highlight = $highlight;
+        $product->position = 0;
         $product->setCreatedAt(new \DateTimeImmutable());
         $product->setUpdatedAt(new \DateTimeImmutable());
 
         return $product;
     }
 
-    public function category()
+    public function categories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsToMany('App\Models\Category', 'categories_products');
     }
 
     public function order()

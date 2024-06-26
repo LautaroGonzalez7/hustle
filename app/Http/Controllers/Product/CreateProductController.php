@@ -18,14 +18,16 @@ class CreateProductController extends Controller
 
         $product = Product::create(
             Arr::get($payload, "name"),
+            Arr::get($payload, "code"),
             Arr::get($payload, "price"),
             Arr::get($payload, "old_price"),
             Arr::get($payload, "content"),
             Arr::get($payload, "highlight"),
-            Arr::get($payload, "category_id"),
         );
 
         $product->save();
+
+        $product->categories()->attach(Arr::get($payload, "category_ids"));
 
         return response()->json(["data" => $product], 200);
 
