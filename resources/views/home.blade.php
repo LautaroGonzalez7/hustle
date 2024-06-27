@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- HOME -->
-    <div id="home">
+    <div id="home" class="home-container">
 
         <!-- home wrap -->
         <div class="">
@@ -10,13 +10,12 @@
             <div id="home-slick">
                 @foreach($sliders as $slider)
                     <!-- banner -->
-                        <div class="banner banner-1">
+                        <div class="banner banner-content" style="background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),url('{{asset('assets/img/brand/logo-bg.svg')}}')">
                             <img class="banner-img-fit" src="{{$slider->images ? '/images/sliders/'.json_decode($slider->images, true)[0] : 'https://www.magnoliascusco.com/wp-content/uploads/2021/06/web-envia-1.jpg'}}"
                                  alt="">
-                            <div class="banner-caption text-center">
-                                <h1>{{$slider->title}}</h1>
-                                <h3 class="white-color font-weak">{{$slider->subtitle}}</h3>
-                                <a class="primary-btn" href="{{$slider->link}}">Tienda</a>
+                            <div class="banner-caption text-left">
+                                <img src="{{asset('assets/img/brand/logo-only-text.svg')}}" width="400px">
+                                <h3 class="font-weak">{{$slider->subtitle}}</h3>
                             </div>
                         </div>
                         <!-- /banner -->
@@ -25,38 +24,6 @@
             <!-- /home slick -->
         </div>
         <!-- /home wrap -->
-
-        <!-- container -->
-        <div class="container">
-
-            <section>
-                <div class="row">
-                    <figure class="col-sm-4 boxes">
-                        <a href="#" class="justify-left-boxes">
-                            <img src="{{ asset('assets/img/icons/truck.svg') }}" width="62" height="55">
-                            <figcaption class="fig-text-boxes"><b>DELIVERY</b><br>LUNES - SÁBADOS</figcaption>
-                        </a>
-                    </figure>
-                    <figure class="col-sm-4 boxes">
-                        <a href="#" class="justify-left-boxes">
-                            <img src="{{ asset('assets/img/icons/flower.svg') }}"
-                                 alt="Trust Pearsons Gift Stores Sydney" width="62" height="55">
-                            <figcaption class="fig-text-boxes"><b>CALIDAD</b> EN<br>FLORES SELECCIONADAS</figcaption>
-                        </a>
-                    </figure>
-                    <figure class="col-sm-4 boxes">
-                        <a href="#" class="justify-left-boxes">
-                            <img src="{{ asset('assets/img/icons/florista.svg') }}"
-                                 alt="Quality Sydney Flowers Guaranteed" width="62" height="55">
-                            <figcaption class="fig-text-boxes"><b>ASESORAMIENTO</b> DE EXPERTOS EN FLORISTERÍA<br>
-                            </figcaption>
-                        </a>
-                    </figure>
-                </div>
-            </section>
-
-        </div>
-        <!-- /container -->
     </div>
     <!-- /HOME -->
 
@@ -69,7 +36,7 @@
                 <!-- section-title -->
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2 class="title">Diseños destacados</h2>
+                        <h2 class="title">Últimos ingresos</h2>
                         <div class="pull-right">
                             <div class="product-slick-dots-1 custom-dots"></div>
                         </div>
@@ -88,7 +55,7 @@
                                     <div class="product-label">
                                         <span class="sale">{{round(($product->price - $product->old_price) * 100 / $product->price)}}%</span>
                                     </div>
-                                    <a href="{{url('/single-product/'.$product->id)}}" class="main-btn quick-view"><i
+                                    <a href="{{url('/single-product/'.$product->id)}}" class="quick-view primary-btn"><i
                                             class="fa fa-search-plus"></i> Ver producto
                                     </a>
                                     <img
@@ -96,10 +63,10 @@
                                         alt="">
                                 </div>
                                 <div class="product-body">
-                                    <h3 class="product-price">S/{{$product->price}}
-                                        <del class="product-old-price">S/{{$product->old_price}}</del>
-                                    </h3>
                                     <h2 class="product-name"><a href="#">{{$product->name}}</a></h2>
+                                    <h4 class="product-price">${{$product->price}}
+                                        <del class="product-old-price">S/{{$product->old_price}}</del>
+                                    </h4>
                                 </div>
                             </div>
                             <!-- /Product Single -->
@@ -124,56 +91,18 @@
                 <!-- section-title -->
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2 class="title">¿Qué estás buscando?</h2>
+                        <h2 class="title">Categorías</h2>
                     </div>
                 </div>
                 <!-- /section-title -->
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners-ocasiones/banner1.jpg')center/cover">
+                    <div class="banner banner-content categories-img"
+                         style="background: url('{{asset('assets/img/banners-ocasiones/banner1.png')}}')center/cover">
                         <div class="text-center">
                             <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
+                                <strong class="categories-text-strong">Remeras</strong>
                             </p>
-                            <button class="primary-btn categories-button">
-                                PLANTAS - ORQUIDEAS
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
-                <div class="col-md-8 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners-ocasiones/banner2.jpg')center/cover">
-                        <div class="text-center">
-                            <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
-                            </p>
-                            <button class="primary-btn categories-button">
-                                AMOR
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
-                <div class="col-md-8 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners-ocasiones/banner3.jpg')center/cover">
-                        <div class="text-center">
-                            <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
-                            </p>
-                            <button class="primary-btn categories-button">
-                                CUMPLEAÑOS
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -181,16 +110,12 @@
 
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners-ocasiones/banner4.jpg')center/cover">
+                    <div class="banner banner-content categories-img"
+                         style="background: url('{{asset('assets/img/banners-ocasiones/banner2.png')}}')center/cover">
                         <div class="text-center">
                             <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
+                                <strong class="categories-text-strong">Abrigos</strong>
                             </p>
-                            <button class="primary-btn categories-button">
-                                FELICITACIONES
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -198,33 +123,12 @@
 
                 <!-- banner -->
                 <div class="col-md-4 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners-ocasiones/banner5.jpg')center/cover">
+                    <div class="banner banner-content categories-img"
+                         style="background: url('{{asset('assets/img/banners-ocasiones/banner3.png')}}')center/cover">
                         <div class="text-center">
                             <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
+                                <strong class="categories-text-strong">Pantalones</strong>
                             </p>
-                            <button class="primary-btn categories-button">
-                                CONDOLENCIAS
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /banner -->
-
-                <!-- banner -->
-                <div class="col-md-8 col-sm-6 container-banner">
-                    <div class="banner banner-1 categories-img"
-                         style="background: url('/assets/img/banners-ocasiones/banner6.jpg')center/cover">
-                        <div class="text-center">
-                            <p>
-                                <strong class="categories-text-strong">Gift Ideas for</strong>
-                                <span class="categories-text-span">Father's Day</span>
-                            </p>
-                            <button class="primary-btn categories-button">
-                                REGALOS - TORTAS
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -235,4 +139,37 @@
         <!-- /container -->
     </div>
     <!-- /section -->
+
+    <!-- container -->
+    <div class="container">
+        <section>
+            <div class="row boxes">
+                <figure class="col-sm-3">
+                    <div class="justify-center">
+                        <img src="{{ asset('assets/img/icons/whatsapp.svg') }}" width="62" height="55">
+                    </div>
+                    <figcaption class="text-center boxes-text">¿Te ayudamos?</figcaption>
+                </figure>
+                <figure class="col-sm-3">
+                    <div class="justify-center">
+                        <img src="{{ asset('assets/img/icons/me-bi.svg') }}" width="62" height="55">
+                    </div>
+                    <figcaption class="text-center boxes-text">Medios de pago</figcaption>
+                </figure>
+                <figure class="col-sm-3">
+                    <div class="justify-center">
+                        <img src="{{ asset('assets/img/icons/cube.svg') }}" width="62" height="55">
+                    </div>
+                    <figcaption class="text-center boxes-text">Envíos a todo el país</figcaption>
+                </figure>
+                <figure class="col-sm-3">
+                    <div class="justify-center">
+                        <img src="{{ asset('assets/img/icons/instagram.svg') }}" width="62" height="55">
+                    </div>
+                    <figcaption class="text-center boxes-text">Seguinos</figcaption>
+                </figure>
+            </div>
+        </section>
+    </div>
+    <!-- /container -->
 @endsection
